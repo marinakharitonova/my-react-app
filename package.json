@@ -1,0 +1,43 @@
+{
+  "name": "my-react-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build:dev": "tsc && vite build --mode development",
+    "build:prod": "tsc && vite build --mode production",
+    "lint:scripts": "eslint \"./src/**/*.{js,jsx,ts,tsx,json}\"",
+    "lint:fix": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\""
+  },
+  "dependencies": {
+    "classnames": "^2.5.1",
+    "i18next": "^23.12.2",
+    "i18next-browser-languagedetector": "^8.0.0",
+    "i18next-http-backend": "^2.5.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-i18next": "^15.0.0",
+    "react-router-dom": "^6.25.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.2",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.15.0",
+    "@typescript-eslint/parser": "^7.15.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-i18next": "^6.0.9",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.35.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.7",
+    "prettier": "^2.8.8",
+    "sass": "^1.77.8",
+    "typescript": "^5.2.2",
+    "vite": "^5.3.4",
+    "vite-plugin-svgr": "^4.2.0"
+  }
+}

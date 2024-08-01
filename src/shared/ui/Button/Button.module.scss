@@ -1,0 +1,13 @@
+.Button {
+  cursor: pointer;
+}
+
+.clear {
+  border: none;
+}
+
+.bordered {
+  border: 1px solid var(--primary-color);
+  padding: 5px 12px;
+  border-radius: var(--border-radius);
+}
