@@ -48,6 +48,10 @@
   },
   "include": [
     "src",
-    "src/declarations.d.ts"
+    "src/declarations.d.ts",
+    "./setup-tests.js"
+  ],
+  "types": [
+    "@testing-library/jest-dom"
   ]
 }
