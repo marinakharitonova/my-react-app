@@ -44,14 +44,12 @@
       "widgets/*": [
         "src/widgets/*"
       ]
-    }
+    },
+    "types": ["jest", "node", "@testing-library/jest-dom"]
   },
   "include": [
     "src",
     "src/declarations.d.ts",
-    "./setup-tests.js"
-  ],
-  "types": [
-    "@testing-library/jest-dom"
+    "./setup-tests.js",
   ]
 }
