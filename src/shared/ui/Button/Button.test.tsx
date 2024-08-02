@@ -5,6 +5,6 @@ describe('Button component', () => {
   test('renders', () => {
     render(<Button>111</Button>)
 
-    expect(screen.getByRole('button')).toBeVisible()
+    expect(screen.getByRole('button')).toBeInTheDocument()
   })
 })

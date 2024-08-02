@@ -11,6 +11,7 @@
     "lint:fix": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\""
   },
   "dependencies": {
+    "-": "^0.0.1",
     "@types/testing-library__jest-dom": "^6.0.0",
     "classnames": "^2.5.1",
     "i18next": "^23.12.2",
@@ -27,7 +28,7 @@
     "@babel/preset-typescript": "^7.24.7",
     "@jest/globals": "^29.7.0",
     "@testing-library/dom": "^10.4.0",
-    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^16.0.0",
     "@types/jest": "^29.5.12",
     "@types/node": "^22.0.2",

@@ -51,5 +51,6 @@
     "src",
     "src/declarations.d.ts",
     "./setup-tests.js",
+    "./jest.config.js"
   ]
 }
