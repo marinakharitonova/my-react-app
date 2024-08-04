@@ -7,7 +7,7 @@ interface LanguageSwitcherProps {
   clasName?: string
 }
 
-const lngs: any = {
+const lngs: Record<string, { nativeName: string }> = {
   en: { nativeName: 'English' },
   ru: { nativeName: 'Русский' },
 }

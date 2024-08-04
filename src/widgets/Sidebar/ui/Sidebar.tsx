@@ -20,7 +20,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
         [styles['collapsed']]: isCollapsed,
       })}
     >
-      <button onClick={() => setIsCollapsed(prev => !prev)}>toggle</button>
+      <button onClick={() => setIsCollapsed(prev => !prev)}>222</button>
 
       <div>
         <ThemeSwitcher />
