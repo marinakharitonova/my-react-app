@@ -10,7 +10,7 @@
     "lint:scripts": "eslint \"./src/**/*.{js,jsx,ts,tsx,json}\"",
     "lint:fix": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
     "test:unit": "jest",
-    "test:ui": "npx chromatic --project-token=chpt_18250846ba87b4e",
+    "test:ui": "npx chromatic --project-token=chpt_18250846ba87b4e --build-script-name storybook:build",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build"
   },
