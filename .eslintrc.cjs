@@ -2,14 +2,15 @@ module.exports = {
   root: true,
   env: { browser: true, es2020: true, 'jest/globals': true },
   extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:react/jsx-runtime',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react-hooks/recommended',
-    'plugin:prettier/recommended',
-    'plugin:i18next/recommended',
-    "plugin:jest-dom/recommended"
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:prettier/recommended",
+    "plugin:i18next/recommended",
+    "plugin:jest-dom/recommended",
+    "plugin:storybook/recommended"
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs', 'jest.config.js'],
   parser: '@typescript-eslint/parser',

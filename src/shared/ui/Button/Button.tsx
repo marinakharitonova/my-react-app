@@ -4,6 +4,7 @@ import { ButtonHTMLAttributes, ReactNode } from 'react'
 
 export enum ThemeButton {
   CLEAR = 'clear',
+  BORDERED = 'bordered',
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

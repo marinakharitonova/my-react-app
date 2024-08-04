@@ -13,3 +13,5 @@ i18n
     debug: mode === 'development',
     fallbackLng: 'ru',
   })
+
+export default i18n

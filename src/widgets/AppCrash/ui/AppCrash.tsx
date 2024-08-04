@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import * as styles from './AppCrash.module.scss'
+import styles from './AppCrash.module.scss'
 import { useTranslation } from 'react-i18next'
 import { Button } from 'shared/ui/Button/Button.tsx'
 
