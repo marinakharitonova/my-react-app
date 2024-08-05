@@ -13,6 +13,8 @@ jobs:
         node-version: [ 18.x ]
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Staring Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
@@ -25,7 +27,5 @@ jobs:
         run: npm run lint:scripts
       - name: unit testing
         run: npm run test:unit
-      - name: build storybook
-        run: npm run storybook:build
       - name: screenshot testing
         run: npm run test:ui
