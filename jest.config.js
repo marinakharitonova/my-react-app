@@ -11,7 +11,7 @@ const config = {
   modulePaths: ['<rootDir>/src/'],
   setupFilesAfterEnv: ['<rootDir>/setup-tests.js'],
   moduleNameMapper: {
-    '^.+\\.svg$': 'jest-svg-transformer',
+    "\\.svg": "<rootDir>/__mocks__/svg.js",
     '^.+\\.(css|less|scss)$': 'identity-obj-proxy',
   },
 }

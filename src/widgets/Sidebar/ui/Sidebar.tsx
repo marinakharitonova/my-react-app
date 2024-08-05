@@ -24,11 +24,13 @@ export const Sidebar = ({ className }: SidebarProps) => {
         [styles.Sidebar]: true,
         [styles['collapsed']]: isCollapsed,
       })}
+      data-testid={'sidebar'}
     >
       <Button
         onClick={() => setIsCollapsed(prev => !prev)}
         theme={ThemeButton.FULFILLED}
         className={styles.toggler}
+        data-testid={'sidebar-toggle'}
       >
         {isCollapsed ? '>' : '<'}
       </Button>
