@@ -22,7 +22,13 @@ export const LanguageSwitcher = ({ clasName }: LanguageSwitcherProps) => {
   return (
     <div className={classNames(clasName, styles.LanguageSwitcher)}>
       {Object.keys(lngs).map(lng => (
-        <Button key={lng} onClick={() => changeLanguage(lng)}>
+        <Button
+          key={lng}
+          onClick={() => changeLanguage(lng)}
+          style={{
+            opacity: i18n.resolvedLanguage === lng ? '1' : '0.5',
+          }}
+        >
           {lngs[lng].nativeName}
         </Button>
       ))}

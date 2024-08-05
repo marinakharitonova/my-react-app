@@ -1,11 +1,7 @@
 import classNames from 'classnames'
 import styles from './Button.module.scss'
 import { ButtonHTMLAttributes, ReactNode } from 'react'
-
-export enum ThemeButton {
-  CLEAR = 'clear',
-  BORDERED = 'bordered',
-}
+import { ThemeButton } from 'shared/ui/Button/interface.ts'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string

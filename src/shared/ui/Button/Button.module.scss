@@ -1,13 +1,20 @@
 .Button {
-  cursor: pointer;
-}
-
-.clear {
   border: none;
+  background: none;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  color: inherit;
+
+  &:hover {
+    opacity: 0.7;
+  }
 }
 
-.bordered {
-  border: 1px solid var(--primary-color);
+.fulfilled {
+  border: 1px solid var(--text-color-light);
+  background: var(--primary-color);
   padding: 5px 12px;
   border-radius: var(--border-radius);
+  color: var(--text-color-light);
+  box-shadow: var(--box-shadow-light);
 }

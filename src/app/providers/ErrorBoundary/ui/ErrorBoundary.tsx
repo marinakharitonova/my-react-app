@@ -1,5 +1,6 @@
 import React, { ErrorInfo, ReactNode, Suspense } from 'react'
 import { AppCrash } from 'widgets/AppCrash'
+import { Loader } from 'shared/ui/Loader/Loader.tsx'
 
 interface ErrorBoundaryProps {
   children: ReactNode
@@ -31,7 +32,7 @@ export class ErrorBoundary extends React.Component<
   render() {
     if (this.state.hasError) {
       return (
-        <Suspense fallback="...is loading">
+        <Suspense fallback={<Loader />}>
           <AppCrash />
         </Suspense>
       )

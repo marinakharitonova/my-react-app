@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { AppLink, AppLinkTheme } from './AppLink.tsx'
+import { AppLink } from './AppLink.tsx'
+import { ThemeAppLink } from 'shared/ui/AppLink/interface.ts'
 
 const meta: Meta<typeof AppLink> = {
   title: 'shared/AppLink',
@@ -12,7 +13,7 @@ type Story = StoryObj<typeof AppLink>
 
 export const Primary: Story = {
   args: {
-    theme: AppLinkTheme.PRIMARY,
+    theme: ThemeAppLink.PRIMARY,
     children: 'Primary link',
     to: '/',
   },

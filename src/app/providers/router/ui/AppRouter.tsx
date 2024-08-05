@@ -4,10 +4,11 @@ import { Suspense } from 'react'
 import { NotFound } from 'pages/NotFound'
 import { Main } from 'pages/Main'
 import { About } from 'pages/About'
+import { Loader } from 'shared/ui/Loader/Loader.tsx'
 
 export const AppRouter = () => {
   return (
-    <Suspense fallback={<p>...Loading...</p>}>
+    <Suspense fallback={<Loader />}>
       <Routes>
         <Route path={'*'} element={<NotFound />} />
         <Route path={'/'} element={<Main />} />

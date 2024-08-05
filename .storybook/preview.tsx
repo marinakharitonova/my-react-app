@@ -33,6 +33,19 @@ const withTheme = (Story, { parameters }) => {
 const preview: Preview = {
   parameters: {
     theme: Theme.LIGHT,
+    backgrounds: {
+      default: 'light',
+      values: [
+        {
+          name: 'light',
+          value: 'hsla(0, 0%, 94%, 1)',
+        },
+        {
+          name: 'dark',
+          value: 'hsla(210, 4%, 10%, 1)',
+        },
+      ],
+    },
   },
   decorators: [
     withRouter,

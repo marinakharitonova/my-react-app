@@ -1,23 +1,28 @@
 import classNames from 'classnames'
-import styles from './ThemeSwitcher.module.scss'
 
-import ThemeIcon from 'shared/assets/icons/theme_switcher.svg?react'
+import ThemeDark from 'shared/assets/icons/theme-dark.svg?react'
+import ThemeLight from 'shared/assets/icons/theme-light.svg?react'
 import { Button } from 'shared/ui/Button/Button.tsx'
 import { useTheme } from 'shared/themes/useTheme.ts'
+import { Theme } from 'shared/themes/interface.ts'
 
-interface ThemeSwitcherProps {
-  clasName?: string
+const themeIcons = {
+  [Theme.DARK]: ThemeDark,
+  [Theme.LIGHT]: ThemeLight,
 }
 
-export const ThemeSwitcher = ({ clasName }: ThemeSwitcherProps) => {
-  const { changeTheme } = useTheme()
+interface ThemeSwitcherProps {
+  className?: string
+}
+
+export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
+  const { changeTheme, theme } = useTheme()
+
+  const SpecificIcon = themeIcons[theme ?? Theme.LIGHT]
 
   return (
-    <Button
-      onClick={changeTheme}
-      className={classNames(clasName, styles.ThemeSwitcher)}
-    >
-      <ThemeIcon /> 123
+    <Button onClick={changeTheme} className={classNames(className)}>
+      <SpecificIcon />
     </Button>
   )
 }

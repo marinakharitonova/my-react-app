@@ -4,5 +4,6 @@
   display: flex;
   gap: 20px;
   padding: 10px;
-  background: var(--bg-color-inverted);
+  background: var(--primary-color);
+  box-shadow: var(--box-shadow-medium);
 }

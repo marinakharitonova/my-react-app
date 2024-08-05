@@ -1,3 +1,5 @@
 .LanguageSwitcher{
-  display: block;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
 }
