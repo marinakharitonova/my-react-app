@@ -3,5 +3,6 @@
   "main": "Home",
   "not_found": "Page not found",
   "refresh_page": "Refresh the page",
-  "app_crash": "An unexpected error occurred"
+  "app_crash": "An unexpected error occurred",
+  "login": "Login"
 }

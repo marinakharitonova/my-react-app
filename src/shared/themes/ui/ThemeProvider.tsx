@@ -5,8 +5,16 @@ import { Theme } from 'shared/themes/interface.ts'
 const defaultTheme =
   (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT
 
-export const ThemeProvider = ({ children }: { children?: ReactNode }) => {
-  const [theme, setTheme] = useState<Theme>(defaultTheme)
+interface ThemeProviderProps {
+  initialTheme?: Theme
+  children?: ReactNode
+}
+
+export const ThemeProvider = ({
+  children,
+  initialTheme,
+}: ThemeProviderProps) => {
+  const [theme, setTheme] = useState<Theme>(initialTheme ?? defaultTheme)
 
   const contextValue = useMemo(
     () => ({

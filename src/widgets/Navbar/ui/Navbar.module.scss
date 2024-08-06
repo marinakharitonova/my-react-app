@@ -1,9 +1,13 @@
 .Navbar {
   width: 100%;
   height: var(--navbar-height);
-  display: flex;
-  gap: 20px;
-  padding: 10px;
   background: var(--primary-color);
   box-shadow: var(--box-shadow-medium);
+  padding: 20px;
+}
+
+
+.login {
+  display: block;
+  margin-left: auto;
 }

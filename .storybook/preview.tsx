@@ -6,6 +6,7 @@ import { MemoryRouter } from 'react-router'
 import { Suspense } from 'react'
 import { I18nextProvider } from 'react-i18next'
 import { Theme } from '../src/shared/themes/interface'
+import { ThemeProvider } from '../src/shared/themes/ui/ThemeProvider'
 
 const withI18next = (Story) => {
   return (
@@ -26,7 +27,9 @@ const withRouter = (Story) => {
 
 const withTheme = (Story, { parameters }) => {
   return (
-    <div className={`app ${parameters.theme}`}><Story /></div>
+    <ThemeProvider initialTheme={parameters.theme}>
+      <div className={`app ${parameters.theme}`}><Story /></div>
+    </ThemeProvider>
   )
 }
 
