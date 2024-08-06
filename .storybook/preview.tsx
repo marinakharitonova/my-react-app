@@ -28,7 +28,7 @@ const withRouter = (Story) => {
 const withTheme = (Story, { parameters }) => {
   return (
     <ThemeProvider initialTheme={parameters.theme}>
-      <div className={`app ${parameters.theme}`}><Story /></div>
+      <Story />
     </ThemeProvider>
   )
 }

@@ -1,5 +1,5 @@
 import { LOCAL_STORAGE_THEME_KEY, ThemeContext } from '../ThemeContext.ts'
-import { ReactNode, useMemo, useState } from 'react'
+import { ReactNode, useEffect, useMemo, useState } from 'react'
 import { Theme } from 'shared/themes/interface.ts'
 
 const defaultTheme =
@@ -15,6 +15,10 @@ export const ThemeProvider = ({
   initialTheme,
 }: ThemeProviderProps) => {
   const [theme, setTheme] = useState<Theme>(initialTheme ?? defaultTheme)
+
+  useEffect(() => {
+    document.body.className = theme
+  }, [])
 
   const contextValue = useMemo(
     () => ({

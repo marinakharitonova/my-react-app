@@ -3,14 +3,17 @@
 @import 'themes/dark';
 @import 'themes/light';
 
-.app {
-  min-height: 100vh;
+body {
   font: var(--font-m);
   color: var(--text-color);
 }
 
-.main-content {
+.app {
   background: var(--bg-color);
+  min-height: 100vh;
+}
+
+.main-content {
   display: flex;
 
   > div:last-child {
