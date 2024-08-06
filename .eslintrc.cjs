@@ -12,7 +12,7 @@ module.exports = {
     "plugin:jest-dom/recommended",
     "plugin:storybook/recommended"
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs', 'jest.config.js'],
+  ignorePatterns: ['dist', '.eslintrc.cjs', 'json-server/index.cjs'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
