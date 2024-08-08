@@ -8,6 +8,10 @@
   &:hover {
     opacity: 0.7;
   }
+
+  &:disabled {
+    opacity: var(--disabled-opacity);
+  }
 }
 
 .fulfilled {

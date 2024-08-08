@@ -43,7 +43,7 @@ server.post('/login', (req, res) => {
 // eslint-disable-next-line
 server.use((req, res, next) => {
   if (!req.headers.authorization) {
-    return res.status(403).json({ message: 'Unauthorized' })
+    return res.status(403).json({ message: 'User not found' })
   }
 
   next()

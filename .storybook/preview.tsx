@@ -5,10 +5,11 @@ import i18n from '../src/shared/config/i18n'
 import { MemoryRouter } from 'react-router'
 import { Suspense } from 'react'
 import { I18nextProvider } from 'react-i18next'
-import { Theme } from '../src/shared/themes/interface'
-import { ThemeProvider } from '../src/shared/themes/ui/ThemeProvider'
+import { Theme } from 'shared/themes/interface.ts'
+import { ThemeProvider } from 'shared/themes/ui/ThemeProvider.tsx'
+import { StoreProvider } from 'app/providers/StoreProvider'
 
-const withI18next = (Story) => {
+const withI18next = (Story: any) => {
   return (
     <Suspense fallback={<div>loading translations...</div>}>
       <I18nextProvider i18n={i18n}>
@@ -17,20 +18,22 @@ const withI18next = (Story) => {
     </Suspense>
   )
 }
-const withRouter = (Story) => {
+const withRouter = (Story: any) => {
   return (
     <MemoryRouter initialEntries={['/']}>
       <Story />
     </MemoryRouter>
   )
 }
-
-const withTheme = (Story, { parameters }) => {
+const withTheme = (Story: any, { parameters }: any) => {
   return (
     <ThemeProvider initialTheme={parameters.theme}>
       <Story />
     </ThemeProvider>
   )
+}
+export const withStore = (Story: any, { parameters }: any) => {
+  return <StoreProvider preloadedState={parameters.preloadedState}><Story /></StoreProvider>
 }
 
 const preview: Preview = {

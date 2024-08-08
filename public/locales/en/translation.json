@@ -4,5 +4,10 @@
   "not_found": "Page not found",
   "refresh_page": "Refresh the page",
   "app_crash": "An unexpected error occurred",
-  "login": "Login"
+  "login": "Login",
+  "input_login": "Enter login",
+  "input_pass": "Enter password",
+  "required_field": "Required field",
+  "greeting_by_name": "Hello, {{name}}!",
+  "logout": "Logout"
 }

@@ -18,7 +18,7 @@ export const ThemeProvider = ({
 
   useEffect(() => {
     document.body.className = theme
-  }, [])
+  }, [theme])
 
   const contextValue = useMemo(
     () => ({

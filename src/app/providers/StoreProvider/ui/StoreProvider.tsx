@@ -1,7 +1,13 @@
 import { Provider } from 'react-redux'
-import { setupStore } from '../config/store.ts'
+import { RootState, setupStore } from '../config/store.ts'
 import { ReactNode } from 'react'
 
-export const StoreProvider = ({ children }: { children?: ReactNode }) => {
-  return <Provider store={setupStore()}>{children}</Provider>
+export const StoreProvider = ({
+  children,
+  preloadedState,
+}: {
+  children?: ReactNode
+  preloadedState?: Partial<RootState>
+}) => {
+  return <Provider store={setupStore(preloadedState)}>{children}</Provider>
 }
