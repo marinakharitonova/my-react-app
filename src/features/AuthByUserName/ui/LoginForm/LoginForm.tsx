@@ -17,7 +17,7 @@ interface LoginFormProps {
   onSuccess?: () => void
 }
 
-export const LoginForm = ({ className, onSuccess }: LoginFormProps) => {
+const LoginForm = ({ className, onSuccess }: LoginFormProps) => {
   const { t } = useTranslation()
 
   const [login, { isLoading }] = useLoginMutation()
@@ -79,3 +79,5 @@ export const LoginForm = ({ className, onSuccess }: LoginFormProps) => {
     </form>
   )
 }
+
+export default LoginForm

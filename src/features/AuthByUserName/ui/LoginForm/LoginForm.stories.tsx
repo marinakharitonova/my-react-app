@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { LoginForm } from './LoginForm.tsx'
+import LoginForm from './LoginForm.tsx'
 import { withStore } from '../../../../../.storybook/preview.tsx'
 
 const meta: Meta<typeof LoginForm> = {
