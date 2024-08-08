@@ -9,5 +9,6 @@
   "input_pass": "Введите пароль",
   "required_field": "Обязательное поле",
   "greeting_by_name": "Привет, {{name}}!",
-  "logout": "Выйти"
+  "logout": "Выйти",
+  "profile": "Профиль"
 }

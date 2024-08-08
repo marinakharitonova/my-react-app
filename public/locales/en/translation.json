@@ -9,5 +9,6 @@
   "input_pass": "Enter password",
   "required_field": "Required field",
   "greeting_by_name": "Hello, {{name}}!",
-  "logout": "Logout"
+  "logout": "Logout",
+  "profile": "Profile"
 }

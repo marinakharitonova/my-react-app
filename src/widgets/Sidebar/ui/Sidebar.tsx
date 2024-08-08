@@ -1,13 +1,13 @@
 import classNames from 'classnames'
 import styles from './Sidebar.module.scss'
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher'
 import { Button } from 'shared/ui/Button/Button.tsx'
 import { ThemeButton } from 'shared/ui/Button/interface.ts'
-import AboutIcon from 'shared/assets/icons/about.svg?react'
-import MainIcon from 'shared/assets/icons/main.svg?react'
-import { SidebarLink } from 'widgets/Sidebar/ui/SidebarLink.tsx'
+
+import { SidebarLink } from 'widgets/Sidebar/ui/SidebarLink/SidebarLink.tsx'
+import { sidebarItemsList } from 'widgets/Sidebar/modal/constants.ts'
 
 interface SidebarProps {
   className?: string
@@ -16,11 +16,17 @@ interface SidebarProps {
 export const Sidebar = ({ className }: SidebarProps) => {
   const [isCollapsed, setIsCollapsed] = useState(false)
 
+  const itemsList = useMemo(
+    () =>
+      sidebarItemsList.map(item => (
+        <SidebarLink item={item} isCollapsed={isCollapsed} key={item.path} />
+      )),
+    [isCollapsed]
+  )
+
   return (
     <div
-      className={classNames({
-        // @ts-ignore
-        [className]: true,
+      className={classNames(className, {
         [styles.Sidebar]: true,
         [styles['collapsed']]: isCollapsed,
       })}
@@ -35,35 +41,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
         {isCollapsed ? '>' : '<'}
       </Button>
 
-      <div className={styles.sidebarLinks}>
-        <SidebarLink
-          translation={'main'}
-          to={'/'}
-          icon={
-            <MainIcon
-              width={24}
-              height={24}
-              fill={'var(--text-color-light)'}
-              style={{ flexShrink: 0 }}
-            />
-          }
-          isCollapsed={isCollapsed}
-        />
-
-        <SidebarLink
-          translation={'about'}
-          to={'about'}
-          icon={
-            <AboutIcon
-              width={24}
-              height={24}
-              fill={'var(--text-color-light)'}
-              style={{ flexShrink: 0 }}
-            />
-          }
-          isCollapsed={isCollapsed}
-        />
-      </div>
+      <div className={styles.sidebarLinks}>{itemsList}</div>
 
       <div className={styles.buttons}>
         <ThemeSwitcher />

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import Main from './Main.tsx'
+import { Main } from './Main.tsx'
 
 const meta: Meta<typeof Main> = {
   title: 'pages/Main',

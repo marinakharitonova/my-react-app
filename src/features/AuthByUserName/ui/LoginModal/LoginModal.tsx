@@ -1,7 +1,7 @@
 import { Modal } from 'shared/ui/Modal/Modal'
-import { LoginFormLazy } from 'features/AuthByUserName/ui/LoginForm/LoginFormLazy.tsx'
 import { Suspense } from 'react'
 import { Loader } from 'shared/ui/Loader/Loader.tsx'
+import { LoginFormLazy } from 'features/AuthByUserName/ui/LoginForm/LoginForm.lazy.tsx'
 
 interface LoginModalProps {
   className?: string
