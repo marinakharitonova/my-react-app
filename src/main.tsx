@@ -9,13 +9,13 @@ import { App } from 'app/App.tsx'
 import { StoreProvider } from 'app/providers/StoreProvider'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <StoreProvider>
-    <Router>
+  <Router>
+    <StoreProvider>
       <ErrorBoundary>
         <ThemeProvider>
           <App />
         </ThemeProvider>
       </ErrorBoundary>
-    </Router>
-  </StoreProvider>
+    </StoreProvider>
+  </Router>
 )

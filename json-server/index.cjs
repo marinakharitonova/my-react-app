@@ -39,6 +39,15 @@ server.post('/login', (req, res) => {
   }
 })
 
+server.post('/logout', (req, res) => {
+  if (!req.headers.authorization) {
+    return res.status(403).json({ message: 'User not found' })
+  }
+
+  return res.status(200).json({ message: 'success' })
+})
+
+
 // проверяем, авторизован ли пользователь
 // eslint-disable-next-line
 server.use((req, res, next) => {

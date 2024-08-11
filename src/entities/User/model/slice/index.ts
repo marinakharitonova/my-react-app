@@ -1,12 +1,12 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from 'app/providers/StoreProvider'
-import { LOCAL_STORAGE_USER } from '../constants.ts'
+import { LOCAL_STORAGE_TOKEN, LOCAL_STORAGE_USER } from '../constants.ts'
 import { authApi } from 'features/AuthByUserName'
 import { User } from '../types/interface.ts'
 
 type AuthState = {
   user: User | null
-  //token: string | null
+  token: string | null
 }
 
 const slice = createSlice({
@@ -15,9 +15,18 @@ const slice = createSlice({
   reducers: {
     authUserInitiated: state => {
       const user = localStorage.getItem(LOCAL_STORAGE_USER)
-      if (user) {
+      const token = localStorage.getItem(LOCAL_STORAGE_TOKEN)
+      if (user && token) {
         state.user = JSON.parse(user)
+        state.token = token
       }
+    },
+    loggedOut: state => {
+      state.user = null
+      state.token = null
+    },
+    tokenReceived: (state, { payload }: PayloadAction<string>) => {
+      state.token = payload
     },
   },
   extraReducers: builder => {
@@ -31,18 +40,23 @@ const slice = createSlice({
           }
 
           state.user = user
+          state.token = 'user token'
           localStorage.setItem(LOCAL_STORAGE_USER, JSON.stringify(user))
+          localStorage.setItem(LOCAL_STORAGE_TOKEN, 'user token')
         }
       )
+
       .addMatcher(authApi.endpoints.logout.matchFulfilled, state => {
         state.user = null
+        state.token = null
         localStorage.removeItem(LOCAL_STORAGE_USER)
+        localStorage.removeItem(LOCAL_STORAGE_TOKEN)
       })
   },
 })
 
 export const authReducer = slice.reducer
 
-export const { authUserInitiated } = slice.actions
+export const { authUserInitiated, loggedOut, tokenReceived } = slice.actions
 
 export const selectAuthUser = (state: RootState) => state.auth.user
