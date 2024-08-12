@@ -9,7 +9,7 @@ type HTMLInputProps = Omit<
   'value' | 'onChange' | 'name'
 >
 
-interface InputProps extends HTMLInputProps {
+export interface InputProps extends HTMLInputProps {
   className?: string
   name: string
   autofocus?: boolean

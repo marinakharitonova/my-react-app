@@ -12,7 +12,7 @@ import { useLoginMutation } from 'features/AuthByUserName/model/api'
 import { catchMutationError } from 'shared/helpers/catchMutationError.ts'
 import { notifyUi } from 'shared/helpers/notifyUi.ts'
 
-interface LoginFormProps {
+export interface LoginFormProps {
   className?: string
   onSuccess?: () => void
 }

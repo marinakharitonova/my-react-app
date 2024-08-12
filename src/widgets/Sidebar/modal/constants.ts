@@ -2,6 +2,7 @@ import React from 'react'
 import AboutIcon from 'shared/assets/icons/about.svg?react'
 import MainIcon from 'shared/assets/icons/main.svg?react'
 import ProfileIcon from 'shared/assets/icons/main.svg?react'
+import ArticleIcon from 'shared/assets/icons/article.svg?react'
 import { AppRoutes } from 'app/providers/router'
 
 export interface SidebarItemType {
@@ -26,6 +27,12 @@ export const sidebarItemsList: SidebarItemType[] = [
     path: AppRoutes.PROFILE,
     Icon: ProfileIcon,
     text: 'profile',
+    withAuth: true,
+  },
+  {
+    path: AppRoutes.ARTICLES,
+    Icon: ArticleIcon,
+    text: 'articles',
     withAuth: true,
   },
 ]

@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { Input } from './Input.tsx'
 import { useForm } from 'react-hook-form'
-import { LoginFormInputs } from 'features/AuthByUserName/model/types/interface.ts'
 
 const meta: Meta<typeof Input> = {
   title: 'shared/Input',
@@ -15,13 +14,41 @@ type Story = StoryObj<typeof Input>
 export const Default: Story = {
   decorators: [
     Story => {
-      const { register } = useForm<LoginFormInputs>()
-      return <Story register={register} />
+      const { register } = useForm()
+
+      return (
+        <>
+          {Story({
+            args: {
+              name: 'login',
+              register,
+              autofocus: true,
+              label: 'Your name:',
+            },
+          })}
+        </>
+      )
     },
   ],
-  args: {
-    name: 'name',
-    label: 'Your name:',
-    autofocus: true,
-  },
+}
+
+export const WithError: Story = {
+  decorators: [
+    Story => {
+      const { register } = useForm()
+
+      return (
+        <>
+          {Story({
+            args: {
+              name: 'login',
+              register,
+              label: 'Your name:',
+              error: 'Обязательное поле!',
+            },
+          })}
+        </>
+      )
+    },
+  ],
 }

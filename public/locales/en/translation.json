@@ -11,6 +11,7 @@
   "greeting_by_name": "Hello, {{name}}!",
   "logout": "Logout",
   "profile": "Profile",
+  "articles": "Articles",
   "fetching_error": "Loading error, refresh the page",
   "edit": "Edit",
   "save": "Save",

@@ -9,6 +9,8 @@ import { Main } from 'pages/Main'
 import { AppRoutes } from '../types/interface.ts'
 import { PrivateRoute } from 'app/providers/router/ui/PrivateRoute.tsx'
 import { Profile } from 'pages/Profile'
+import { Articles } from 'pages/Articles'
+import { ArticleDetail } from 'pages/ArticleDetail'
 
 export const AppRouter = () => {
   return (
@@ -22,6 +24,22 @@ export const AppRouter = () => {
           element={
             <PrivateRoute>
               <Profile />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path={AppRoutes.ARTICLES}
+          element={
+            <PrivateRoute>
+              <Articles />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path={`${AppRoutes.ARTICLES_DETAIL}:id`}
+          element={
+            <PrivateRoute>
+              <ArticleDetail />
             </PrivateRoute>
           }
         />
