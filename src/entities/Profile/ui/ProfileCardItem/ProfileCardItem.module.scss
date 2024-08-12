@@ -1,0 +1,8 @@
+.ProfileCardItem {
+  display: flex;
+  gap: 8px;
+
+  > p:first-child {
+    font-weight: 600;
+  }
+}

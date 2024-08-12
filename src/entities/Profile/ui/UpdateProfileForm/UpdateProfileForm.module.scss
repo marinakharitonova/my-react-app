@@ -1,0 +1,11 @@
+.UpdateProfileForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .buttons {
+    align-self: flex-end;
+    display: flex;
+    gap: 8px;
+  }
+}

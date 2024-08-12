@@ -10,5 +10,9 @@
   "required_field": "Required field",
   "greeting_by_name": "Hello, {{name}}!",
   "logout": "Logout",
-  "profile": "Profile"
+  "profile": "Profile",
+  "fetching_error": "Loading error, refresh the page",
+  "edit": "Edit",
+  "save": "Save",
+  "cancel": "Cancel"
 }

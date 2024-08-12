@@ -3,19 +3,19 @@
     {
       "id": 1,
       "title": "json-server",
-      "userId": 1
+      "userId": "1"
     },
     {
       "id": 2,
       "title": "json-server",
-      "userId": 2
+      "userId": "2"
     }
   ],
   "comments": [
     {
       "id": 1,
       "body": "some comment",
-      "postId": 1
+      "postId": "1"
     }
   ],
   "users": [
@@ -25,5 +25,12 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "firstName": "Ivan",
+    "lastName": "Ivanov",
+    "username": "admin_ivan",
+    "age": 43,
+    "currency": "RUB",
+    "city": "Moscow"
+  }
 }

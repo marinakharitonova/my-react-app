@@ -1,13 +1,10 @@
-import { createApi } from '@reduxjs/toolkit/query/react'
 import {
   LoginMutation,
   LoginMutationResponse,
 } from 'features/AuthByUserName/model/types/interface.ts'
-import { baseQueryWithReAuth } from 'shared/api/baseQuery.ts'
+import { clientApi } from 'shared/api/clientApi.ts'
 
-export const authApi = createApi({
-  reducerPath: 'authApi',
-  baseQuery: baseQueryWithReAuth,
+export const authApi = clientApi.injectEndpoints({
   endpoints: builder => ({
     login: builder.mutation<LoginMutationResponse, LoginMutation>({
       query: data => ({

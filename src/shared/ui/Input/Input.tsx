@@ -1,8 +1,8 @@
 import { InputHTMLAttributes } from 'react'
 import cls from './Input.module.scss'
 import classNames from 'classnames'
-import { useTranslation } from 'react-i18next'
 import { UseFormRegister } from 'react-hook-form'
+import { FormFieldError } from 'shared/ui/FormFieldError/FormFieldError.tsx'
 
 type HTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
@@ -28,10 +28,8 @@ export const Input = ({
   autofocus,
   ...otherProps
 }: InputProps) => {
-  const { t } = useTranslation()
-
   return (
-    <div>
+    <FormFieldError error={error}>
       <label className={classNames(cls.InputWrapper, className)}>
         {label && <span style={{ flexShrink: 0 }}>{label}</span>}
         <input
@@ -39,13 +37,11 @@ export const Input = ({
           className={classNames(cls.input, {
             [cls.hasError]: !!error,
           })}
-          {...register(name)}
+          {...register(name, { valueAsNumber: type === 'number' })}
           {...otherProps}
           autoFocus={autofocus}
         />
       </label>
-
-      {error && <p style={{ marginTop: '4px' }}>{t(error)}</p>}
-    </div>
+    </FormFieldError>
   )
 }

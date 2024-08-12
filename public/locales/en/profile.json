@@ -1,0 +1,11 @@
+{
+  "first_name": "First name",
+  "last_name": "Last name",
+  "age": "Age",
+  "city": "City",
+  "user_name": "User name",
+  "currency": "Currency",
+  "age_error": "Min age: {{minAge}}, max age: {{maxAge}}",
+  "integer_number": "Integers only",
+  "profile_updated": "Profile updated!"
+}

@@ -4,14 +4,14 @@ import {
   EnhancedStore,
   Reducer,
 } from '@reduxjs/toolkit'
-import { authApi } from 'features/AuthByUserName'
 import { authReducer } from 'entities/User'
+import { clientApi } from 'shared/api/clientApi.ts'
 
 const mode = import.meta.env.MODE
 
 const staticReducers = {
   auth: authReducer,
-  [authApi.reducerPath]: authApi.reducer,
+  [clientApi.reducerPath]: clientApi.reducer,
 }
 
 export function initializeStore(preloadedState?: Partial<RootState>) {
@@ -33,7 +33,7 @@ function setupStore(
   return configureStore({
     reducer: createReducer(),
     middleware: getDefaultMiddleware =>
-      getDefaultMiddleware().concat(authApi.middleware),
+      getDefaultMiddleware().concat(clientApi.middleware),
     preloadedState,
     devTools: mode === 'development',
   })

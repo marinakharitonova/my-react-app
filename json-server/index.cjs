@@ -46,6 +46,59 @@ server.post('/logout', (req, res) => {
 
   return res.status(200).json({ message: 'success' })
 })
+server.get('/profile', (req, res) => {
+  if (!req.headers.authorization) {
+    return res.status(403).json({ message: 'User not found' })
+  }
+
+  try {
+    const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'))
+    const { profile = [] } = db
+
+    if (profile) {
+      return res.json(profile)
+    }
+
+    return res.status(403).json({ message: 'User not found' })
+  } catch (e) {
+    console.log(e)
+    return res.status(500).json({ message: e.message })
+  }
+})
+
+server.put('/profile', (req, res) => {
+  if (!req.headers.authorization) {
+    return res.status(403).json({ message: 'User not found' })
+  }
+
+  try {
+    const newData = req.body
+    const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'))
+
+    if (newData) {
+      const newDb = {
+        ...db,
+        profile: {
+          ...db.profile,
+          ...newData,
+        },
+      }
+
+      try {
+        fs.writeFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8', newDb)
+        return res.json(newDb.profile)
+      } catch (err) {
+        console.log(e)
+        return res.status(500).json({ message: e.message })
+      }
+    }
+
+    return res.status(403).json({ message: 'User not found' })
+  } catch (e) {
+    console.log(e)
+    return res.status(500).json({ message: e.message })
+  }
+})
 
 
 // проверяем, авторизован ли пользователь
