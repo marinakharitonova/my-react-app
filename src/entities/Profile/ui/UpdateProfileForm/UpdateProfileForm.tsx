@@ -26,8 +26,6 @@ export const UpdateProfileForm = ({
   const [updateProfile, { isLoading }] = useUpdateProfileMutation()
 
   const onSubmit: SubmitHandler<UpdateProfileFormInputs> = data => {
-    console.log(data)
-
     updateProfile(data)
       .unwrap()
       .then(() => {

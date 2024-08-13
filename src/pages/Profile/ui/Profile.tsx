@@ -4,6 +4,7 @@ import { UpdateProfileForm } from 'entities/Profile/ui/UpdateProfileForm/UpdateP
 import { useTranslation } from 'react-i18next'
 import { ThemeButton } from 'shared/ui/Button/interface.ts'
 import { Button } from 'shared/ui/Button/Button.tsx'
+import { ContentLoader } from 'shared/ui/ContentLoader/ContentLoader.tsx'
 
 const Profile = () => {
   const { t } = useTranslation()
@@ -38,11 +39,13 @@ const Profile = () => {
             theme={ThemeButton.FULFILLED}
             onClick={edit}
             style={{ display: 'block', margin: '0 0 20px auto' }}
-            disabled={isFetching}
+            disabled={isFetching || isError}
           >
             {t('edit')}
           </Button>
-          <ProfileCard isLoading={isFetching} data={data} isError={isError} />
+          <ContentLoader isLoading={isFetching} isError={isError}>
+            {data && <ProfileCard data={data} />}
+          </ContentLoader>
         </>
       )}
     </div>

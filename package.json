@@ -75,11 +75,18 @@
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "json-server": "^0.17.4",
+    "msw": "^2.3.5",
+    "msw-storybook-addon": "^2.0.3",
     "prettier": "^2.8.8",
     "sass": "^1.77.8",
     "storybook": "^8.2.7",
     "typescript": "^5.2.2",
     "vite": "^5.3.4",
     "vite-plugin-svgr": "^4.2.0"
+  },
+  "msw": {
+    "workerDirectory": [
+      "__mocks__"
+    ]
   }
 }

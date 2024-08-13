@@ -13,5 +13,6 @@ const config: StorybookConfig = {
     name: '@storybook/react-vite',
     options: {},
   },
+  staticDirs: ['../__mocks__'],
 }
 export default config
