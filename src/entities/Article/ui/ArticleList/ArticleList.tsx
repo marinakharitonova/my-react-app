@@ -1,14 +1,15 @@
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 import cls from './ArticleList.module.scss'
-import { IArticle } from 'entities/Article'
 import classNames from 'classnames'
+import { IArticle } from 'entities/Article'
+import { memo } from 'react'
 
 interface ArticleListProps {
   className?: string
   articles: IArticle[]
 }
 
-export const ArticleList = ({ className, articles }: ArticleListProps) => {
+export const ArticleList = memo(({ className, articles }: ArticleListProps) => {
   return (
     <div className={classNames(cls.ArticleList, className)}>
       {articles.length > 0
@@ -22,4 +23,6 @@ export const ArticleList = ({ className, articles }: ArticleListProps) => {
         : null}
     </div>
   )
-}
+})
+
+ArticleList.displayName = 'MemoizedArticleList'

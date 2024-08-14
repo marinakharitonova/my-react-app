@@ -1,5 +1,9 @@
 .Sidebar {
   display: flex;
+  position: sticky;
+  flex-shrink: 0;
+  top: var(--navbar-height);
+  left: 0;
   flex-direction: column;
   height: calc(100vh - var(--navbar-height));
   width: 300px;

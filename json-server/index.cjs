@@ -124,6 +124,28 @@ server.get('/article/:id', (req, res) => {
   }
 })
 
+server.get('/articles', (req, res) => {
+  if (!req.headers.authorization) {
+    return res.status(403).json({ message: 'User not found' })
+  }
+
+  try {
+    const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'))
+    const { articles } = db
+    const {query: {limit, page}} = req;
+
+    if (articles) {
+      const resp = createPaginationResponse(articles, Number(page), Number(limit))
+      return res.json(resp)
+    }
+
+    return res.status(403).json({ message: 'Article not found' })
+  } catch (e) {
+    console.log(e)
+    return res.status(500).json({ message: e.message })
+  }
+})
+
 
 // проверяем, авторизован ли пользователь
 // eslint-disable-next-line
@@ -141,3 +163,16 @@ server.use(router)
 server.listen(8000, () => {
   console.log('server is running on 8000 port')
 })
+
+
+function createPaginationResponse(items, page, limit = 20) {
+  return {
+    items: items.slice((page - 1) * limit, page * limit),
+    pagination: {
+      'current_page': page,
+      'total_page': Math.ceil(items.length / limit),
+      'per_page': limit,
+      'total_items': items.length,
+    },
+  }
+}

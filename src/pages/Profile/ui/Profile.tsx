@@ -1,6 +1,9 @@
-import { ProfileCard, useGetProfileQuery } from 'entities/Profile'
+import {
+  ProfileCard,
+  UpdateProfileForm,
+  useGetProfileQuery,
+} from 'entities/Profile'
 import { useToggle } from 'shared/hooks/useToggle.ts'
-import { UpdateProfileForm } from 'entities/Profile/ui/UpdateProfileForm/UpdateProfileForm.tsx'
 import { useTranslation } from 'react-i18next'
 import { ThemeButton } from 'shared/ui/Button/interface.ts'
 import { Button } from 'shared/ui/Button/Button.tsx'

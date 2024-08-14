@@ -1,9 +1,13 @@
 .Navbar {
   width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
   height: var(--navbar-height);
   background: var(--primary-color);
   box-shadow: var(--box-shadow-medium);
   padding: 20px;
+  z-index: var(--navbar-z-index);
 }
 
 
