@@ -36,7 +36,7 @@ export const AppRouter = () => {
           }
         />
         <Route
-          path={`${AppRoutes.ARTICLES_DETAIL}:id`}
+          path={`${AppRoutes.ARTICLES_DETAIL}:articleId`}
           element={
             <PrivateRoute>
               <ArticleDetail />

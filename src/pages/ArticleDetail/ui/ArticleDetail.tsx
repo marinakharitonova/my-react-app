@@ -1,5 +1,14 @@
+import { ArticleDetails } from 'entities/Article'
+import { useParams } from 'react-router-dom'
+
 const ArticleDetail = () => {
-  return <div>Article Detail</div>
+  const { articleId } = useParams()
+
+  return (
+    <div>
+      <ArticleDetails id={Number(articleId)} />
+    </div>
+  )
 }
 
 export default ArticleDetail

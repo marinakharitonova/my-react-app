@@ -100,6 +100,30 @@ server.put('/profile', (req, res) => {
   }
 })
 
+server.get('/article/:id', (req, res) => {
+  if (!req.headers.authorization) {
+    return res.status(403).json({ message: 'User not found' })
+  }
+
+  try {
+    const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'))
+    const { articles } = db
+
+    const { id } = req.params
+
+    const article = articles ? articles.find(item => item.id === Number(id)) : null
+
+    if (article) {
+      return res.json(article)
+    }
+
+    return res.status(403).json({ message: 'Article not found' })
+  } catch (e) {
+    console.log(e)
+    return res.status(500).json({ message: e.message })
+  }
+})
+
 
 // проверяем, авторизован ли пользователь
 // eslint-disable-next-line
