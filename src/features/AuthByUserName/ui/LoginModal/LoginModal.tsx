@@ -3,7 +3,6 @@ import { Suspense } from 'react'
 import { Loader } from 'shared/ui/Loader/Loader.tsx'
 import { LoginFormLazy } from 'features/AuthByUserName/ui/LoginForm/LoginForm.lazy.tsx'
 import { useNavigate } from 'react-router-dom'
-import { AppRoutes } from 'app/providers/router'
 import { useTranslation } from 'react-i18next'
 
 interface LoginModalProps {
@@ -18,7 +17,7 @@ export const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
 
   const handleSuccess = () => {
     onClose()
-    navigate(AppRoutes.PROFILE)
+    navigate('/profile')
   }
 
   return (
