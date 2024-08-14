@@ -16,7 +16,6 @@ const Articles = () => {
     <ContentLoader isLoading={isLoading} isError={isError}>
       {data?.items && (
         <div>
-          111111
           <ArticleList articles={data.items} />
           {isFetching && <Loader />}
           <button onClick={() => setPage(page + 1)}>Load More</button>

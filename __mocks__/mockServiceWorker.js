@@ -1,4 +1,4 @@
-profile stories/* eslint-disable */
+/* eslint-disable */
 /* tslint:disable */
 
 /**
