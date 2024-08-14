@@ -4,6 +4,7 @@ import { Loader } from 'shared/ui/Loader/Loader.tsx'
 import { LoginFormLazy } from 'features/AuthByUserName/ui/LoginForm/LoginForm.lazy.tsx'
 import { useNavigate } from 'react-router-dom'
 import { AppRoutes } from 'app/providers/router'
+import { useTranslation } from 'react-i18next'
 
 interface LoginModalProps {
   className?: string
@@ -13,6 +14,7 @@ interface LoginModalProps {
 
 export const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
   const navigate = useNavigate()
+  const { t } = useTranslation()
 
   const handleSuccess = () => {
     onClose()
@@ -21,6 +23,8 @@ export const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} lazy>
+      <h2 style={{ marginBottom: '20px' }}>{t('login')}</h2>
+
       <Suspense fallback={<Loader />}>
         <LoginFormLazy onSuccess={handleSuccess} />
       </Suspense>

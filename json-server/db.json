@@ -119,8 +119,8 @@
     }
   ],
   "profile": {
-    "first": "jgh",
-    "lastname": "asf",
+    "firstName": "jgh",
+    "lastName": "asf",
     "age": 465,
     "currency": "RUB",
     "country": "Belarus",

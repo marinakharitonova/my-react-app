@@ -16,7 +16,6 @@ export const AppRouter = () => {
   return (
     <Suspense fallback={<Loader />}>
       <Routes>
-        <Route path={'*'} element={<NotFound />} />
         <Route path={AppRoutes.MAIN} element={<Main />} />
         <Route path={AppRoutes.ABOUT} element={<About />} />
         <Route
@@ -43,6 +42,7 @@ export const AppRouter = () => {
             </PrivateRoute>
           }
         />
+        <Route path={'*'} element={<NotFound />} />
       </Routes>
     </Suspense>
   )
