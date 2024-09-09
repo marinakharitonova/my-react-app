@@ -9,6 +9,9 @@ import { Theme } from 'shared/themes/interface.ts'
 import { ThemeProvider } from 'shared/themes/ui/ThemeProvider.tsx'
 import { StoreProvider } from 'app/providers/StoreProvider'
 import { Route, Routes } from 'react-router-dom'
+import { initialize } from 'msw-storybook-addon'
+
+export const api = initialize();
 
 const withI18next = (Story: any) => {
   return (

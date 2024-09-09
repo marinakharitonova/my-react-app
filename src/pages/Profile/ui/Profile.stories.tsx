@@ -7,7 +7,7 @@ import { delay, http, HttpResponse } from 'msw'
 
 const API_URL = import.meta.env.VITE_CLIENT_API
 
-initialize()
+//initialize()
 
 const meta: Meta<typeof Profile> = {
   title: 'pages/Profile',
