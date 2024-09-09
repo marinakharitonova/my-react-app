@@ -85,11 +85,11 @@ server.put('/profile', (req, res) => {
       }
 
       try {
-        fs.writeFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8', newDb)
-        return res.json(newDb.profile)
+        fs.writeFileSync(path.resolve(__dirname, 'db.json'), JSON.stringify(newDb))
+        return res.status(200).json(newDb.profile)
       } catch (err) {
-        console.log(e)
-        return res.status(500).json({ message: e.message })
+        console.log(err)
+        return res.status(500).json({ message: err.message })
       }
     }
 

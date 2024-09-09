@@ -8,6 +8,7 @@ import { I18nextProvider } from 'react-i18next'
 import { Theme } from 'shared/themes/interface.ts'
 import { ThemeProvider } from 'shared/themes/ui/ThemeProvider.tsx'
 import { StoreProvider } from 'app/providers/StoreProvider'
+import { Route, Routes } from 'react-router-dom'
 
 const withI18next = (Story: any) => {
   return (
@@ -18,10 +19,13 @@ const withI18next = (Story: any) => {
     </Suspense>
   )
 }
-const withRouter = (Story: any) => {
+const withRouter = (Story: any, { parameters }: any) => {
+
   return (
-    <MemoryRouter initialEntries={['/']}>
-      <Story />
+    <MemoryRouter initialEntries={[parameters.initialEntries ?? '/']}>
+      <Routes>
+        <Route path={parameters.path ?? '/*'} element={<Story />} />
+      </Routes>
     </MemoryRouter>
   )
 }
