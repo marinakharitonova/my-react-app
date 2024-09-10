@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next'
 import { ThemeButton } from 'shared/ui/Button/interface.ts'
 import { Button } from 'shared/ui/Button/Button.tsx'
 import { ContentLoader } from 'shared/ui/ContentLoader/ContentLoader.tsx'
+import { PageWrapper } from 'widgets/PageWrapper/ui/PageWrapper.tsx'
 
 const Profile = () => {
   const { t } = useTranslation()
@@ -17,7 +18,7 @@ const Profile = () => {
   const { isOn: isEdited, on: edit, off: cancelEdit } = useToggle(false)
 
   return (
-    <div>
+    <PageWrapper>
       <h2 style={{ marginBottom: '40px' }}>{t('profile')}</h2>
 
       {isEdited ? (
@@ -51,7 +52,7 @@ const Profile = () => {
           </ContentLoader>
         </>
       )}
-    </div>
+    </PageWrapper>
   )
 }
 

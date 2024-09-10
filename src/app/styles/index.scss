@@ -16,9 +16,4 @@ body {
 .main-content {
   display: flex;
   position: relative;
-
-  > div:last-child {
-    flex-grow: 1;
-    padding: 40px;
-  }
 }

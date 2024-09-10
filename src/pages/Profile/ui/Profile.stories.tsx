@@ -2,12 +2,10 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import Profile from './Profile.tsx'
 import { withStore } from '../../../../.storybook/preview.tsx'
-import { initialize, mswLoader } from 'msw-storybook-addon'
+import { mswLoader } from 'msw-storybook-addon'
 import { delay, http, HttpResponse } from 'msw'
 
 const API_URL = import.meta.env.VITE_CLIENT_API
-
-//initialize()
 
 const meta: Meta<typeof Profile> = {
   title: 'pages/Profile',
