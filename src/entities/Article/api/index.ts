@@ -29,7 +29,10 @@ export const articleApi = clientApi.injectEndpoints({
       },
       // Refetch when the page arg changes
       forceRefetch({ currentArg, previousArg }) {
-        return currentArg !== previousArg
+        return !!(
+          previousArg === undefined ||
+          (currentArg && previousArg.page < currentArg.page)
+        )
       },
     }),
   }),

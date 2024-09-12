@@ -6,11 +6,13 @@ import {
 } from '@reduxjs/toolkit'
 import { authReducer } from 'entities/User'
 import { clientApi } from 'shared/api/clientApi.ts'
+import { scrollPositionReducer } from 'widgets/PageWrapper'
 
 const mode = import.meta.env.MODE
 
 const staticReducers = {
   auth: authReducer,
+  scrollPosition: scrollPositionReducer,
   [clientApi.reducerPath]: clientApi.reducer,
 }
 
