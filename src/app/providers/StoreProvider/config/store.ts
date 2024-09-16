@@ -1,58 +1,73 @@
-import {
-  combineReducers,
-  configureStore,
-  EnhancedStore,
-  Reducer,
-} from '@reduxjs/toolkit'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { authReducer } from 'entities/User'
 import { clientApi } from 'shared/api/clientApi.ts'
 import { scrollPositionReducer } from 'widgets/PageWrapper'
 
-const mode = import.meta.env.MODE
+import { ENVIRONMENT } from '../../../../constants.ts'
 
-const staticReducers = {
+const rootReducer = combineReducers({
   auth: authReducer,
   scrollPosition: scrollPositionReducer,
   [clientApi.reducerPath]: clientApi.reducer,
-}
+})
 
-export function initializeStore(preloadedState?: Partial<RootState>) {
-  const store = setupStore(preloadedState)
-
-  store.asyncReducers = {}
-
-  store.injectReducer = (key, asyncReducer) => {
-    store.asyncReducers![key] = asyncReducer
-    store.replaceReducer(createReducer(store.asyncReducers))
-  }
-
-  return store
-}
-
-function setupStore(
-  preloadedState?: Partial<RootState>
-): ReduxStoreWithManager {
+export function setupStore(preloadedState?: Partial<RootState>) {
   return configureStore({
-    reducer: createReducer(),
+    reducer: rootReducer,
     middleware: getDefaultMiddleware =>
       getDefaultMiddleware().concat(clientApi.middleware),
     preloadedState,
-    devTools: mode === 'development',
+    devTools: ENVIRONMENT === 'development',
   })
 }
 
-function createReducer(asyncReducers?: Record<string, Reducer>) {
-  return combineReducers({
-    ...staticReducers,
-    ...asyncReducers,
-  })
-}
-
+export type RootState = ReturnType<typeof rootReducer>
 export type AppStore = ReturnType<typeof setupStore>
 export type AppDispatch = AppStore['dispatch']
-export type RootState = ReturnType<typeof createReducer>
 
-export interface ReduxStoreWithManager extends EnhancedStore {
-  asyncReducers?: Record<string, Reducer>
-  injectReducer?: (key: string, asyncReducer: Reducer) => void
-}
+// const staticReducers = {
+//   auth: authReducer,
+//   scrollPosition: scrollPositionReducer,
+//   [clientApi.reducerPath]: clientApi.reducer,
+// }
+//
+// export function initializeStore(preloadedState?: Partial<RootState>) {
+//   const store = setupStore(preloadedState)
+//
+//   store.asyncReducers = {}
+//
+//   store.injectReducer = (key, asyncReducer) => {
+//     store.asyncReducers![key] = asyncReducer
+//     store.replaceReducer(createReducer(store.asyncReducers))
+//   }
+//
+//   return store
+// }
+//
+// function setupStore(
+//   preloadedState?: Partial<RootState>
+// ): ReduxStoreWithManager {
+//   return configureStore({
+//     reducer: createReducer(),
+//     middleware: getDefaultMiddleware =>
+//       getDefaultMiddleware().concat(clientApi.middleware),
+//     preloadedState,
+//     devTools: ENVIRONMENT === 'development',
+//   })
+// }
+//
+// function createReducer(asyncReducers?: Record<string, Reducer>) {
+//   return combineReducers({
+//     ...staticReducers,
+//     ...asyncReducers,
+//   })
+// }
+//
+// export type AppStore = ReturnType<typeof setupStore>
+// export type AppDispatch = AppStore['dispatch']
+// export type RootState = ReturnType<typeof createReducer>
+//
+// export interface ReduxStoreWithManager extends EnhancedStore {
+//   asyncReducers?: Record<string, Reducer>
+//   injectReducer?: (key: string, asyncReducer: Reducer) => void
+// }

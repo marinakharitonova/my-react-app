@@ -1,30 +1,36 @@
 import React, { PropsWithChildren } from 'react'
-import { render } from '@testing-library/react'
+import { render, RenderOptions } from '@testing-library/react'
 import { MemoryRouter } from 'react-router'
 import userEvent from '@testing-library/user-event'
 import { I18nextProvider } from 'react-i18next'
 import i18nForTests from 'shared/config/i18nForTests.ts'
+import { RootState, StoreProvider } from 'app/providers/StoreProvider'
 
-export interface Opts {
+interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {
   route?: string
+  preloadedState?: Partial<RootState>
 }
 
-export const renderWithProviders = (
+export function renderWithProviders(
   ui: React.ReactElement,
-  opts: Opts = {}
-) => {
-  const { route = '/' } = opts
-
-  function Wrapper({ children }: PropsWithChildren): JSX.Element {
+  {
+    preloadedState = {},
+    route = '/',
+    ...renderOptions
+  }: ExtendedRenderOptions = {}
+) {
+  function Wrapper({ children }: PropsWithChildren<{}>): JSX.Element {
     return (
-      <MemoryRouter initialEntries={[route]}>
-        <I18nextProvider i18n={i18nForTests}>{children}</I18nextProvider>
-      </MemoryRouter>
+      <StoreProvider preloadedState={preloadedState}>
+        <MemoryRouter initialEntries={[route]}>
+          <I18nextProvider i18n={i18nForTests}>{children}</I18nextProvider>
+        </MemoryRouter>
+      </StoreProvider>
     )
   }
 
   return {
     user: userEvent.setup(),
-    ...render(ui, { wrapper: Wrapper }),
+    ...render(ui, { wrapper: Wrapper, ...renderOptions }),
   }
 }

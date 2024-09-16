@@ -6,6 +6,7 @@
 /** @type {import('jest').Config} */
 
 const config = {
+  rootDir: '.',
   clearMocks: true,
   testEnvironment: 'jsdom',
   modulePaths: ['<rootDir>/src/'],
@@ -13,6 +14,7 @@ const config = {
   moduleNameMapper: {
     '\\.svg': '<rootDir>/__mocks__/svg.js',
     '^.+\\.(css|less|scss)$': 'identity-obj-proxy',
+    'src/constants': '<rootDir>/__mocks__/constantsMock.ts',
   },
   reporters: [
     'default',

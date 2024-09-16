@@ -6,15 +6,15 @@ import {
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query'
 import { Mutex } from 'async-mutex'
 import { loggedOut, tokenReceived } from 'entities/User/model/slice'
-
-const API_URL = import.meta.env.VITE_CLIENT_API
+import { API_URL } from '../../constants.ts'
+import { RootState } from 'app/providers/StoreProvider'
 
 const mutex = new Mutex()
 
 const baseQuery = fetchBaseQuery({
   baseUrl: API_URL,
   prepareHeaders: (headers, { getState }) => {
-    const state = getState()
+    const state = getState() as RootState
 
     const token = state.auth.token
     if (token) {

@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { RootState } from 'app/providers/StoreProvider'
 import { LOCAL_STORAGE_TOKEN, LOCAL_STORAGE_USER } from '../constants.ts'
 import { authApi } from 'features/AuthByUserName'
 import { User } from '../types/interface.ts'
@@ -58,5 +57,3 @@ const slice = createSlice({
 export const authReducer = slice.reducer
 
 export const { authUserInitiated, loggedOut, tokenReceived } = slice.actions
-
-export const selectAuthUser = (state: RootState) => state.auth.user
