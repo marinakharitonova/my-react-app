@@ -4,14 +4,20 @@ import { Button } from 'shared/ui/Button/Button.tsx'
 import { useTranslation } from 'react-i18next'
 import { useLogoutMutation } from 'features/AuthByUserName/model/api'
 import { catchMutationError } from 'shared/helpers/catchMutationError.ts'
+import { useAppDispatch } from 'app/providers/StoreProvider'
+import { loggedOut } from 'entities/User'
 
 export const LogoutButton = () => {
   const { t } = useTranslation()
+  const dispatch = useAppDispatch()
 
   const [logout, { isLoading }] = useLogoutMutation()
 
   const handleClick = () => {
-    logout().unwrap().catch(catchMutationError)
+    logout()
+      .unwrap()
+      .then(() => dispatch(loggedOut()))
+      .catch(catchMutationError)
   }
 
   return (

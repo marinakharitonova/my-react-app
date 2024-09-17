@@ -4,7 +4,7 @@ import { ArticleCodeBlock } from 'entities/Article/ui/ArticleCodeBlock/ArticleCo
 import { ArticleImageBlock } from 'entities/Article/ui/ArticleImageBlock/ArticleImageBlock.tsx'
 import { ArticleTextBlock } from 'entities/Article/ui/ArticleTextBlock/ArticleTextBlock.tsx'
 import cls from './ArticleDetails.module.scss'
-import { ArticleBlockType } from '../../model/types/interface.ts'
+import { ArticleBlockType } from '../../model/consts/constants.ts'
 import { ContentLoader } from 'shared/ui/ContentLoader/ContentLoader.tsx'
 import { useGetArticleByIdQuery } from 'entities/Article/api'
 import classNames from 'classnames'

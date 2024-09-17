@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import svgr from 'vite-plugin-svgr'
+import circleDependency from 'vite-plugin-circular-dependency'
 
 // https://vitejs.dev/config/
 
@@ -10,6 +11,7 @@ export default defineConfig(({ mode }) => ({
     svgr({
       include: '**/*.svg?react',
     }),
+    circleDependency(),
   ],
   resolve: {
     alias: {

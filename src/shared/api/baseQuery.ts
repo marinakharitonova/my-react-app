@@ -5,9 +5,9 @@ import {
 } from '@reduxjs/toolkit/query/react'
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query'
 import { Mutex } from 'async-mutex'
-import { loggedOut, tokenReceived } from 'entities/User/model/slice'
 import { API_URL } from '../../constants.ts'
 import { RootState } from 'app/providers/StoreProvider'
+import { loggedOut, tokenReceived } from 'entities/User'
 
 const mutex = new Mutex()
 

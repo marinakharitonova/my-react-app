@@ -1,9 +1,12 @@
 import { MutableRefObject, ReactNode, useEffect, useRef } from 'react'
 import { useInfiniteScroll } from 'shared/hooks/useInfiniteScroll.ts'
 import { useThrottle } from 'shared/hooks/useThrottle.ts'
-import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
+import {
+  useAppDispatch,
+  useAppSelector,
+} from '../../../app/providers/StoreProvider/config/hooks.ts'
 import { useLocation } from 'react-router-dom'
-import { scrollPositionSaved } from 'widgets/PageWrapper/model/slice'
+import { scrollPositionSaved } from '../model/slice/index.ts'
 
 export const PageWrapper = ({
   children,

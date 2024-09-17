@@ -1,7 +1,7 @@
 import { Modal } from 'shared/ui/Modal/Modal'
 import { Suspense } from 'react'
 import { Loader } from 'shared/ui/Loader/Loader.tsx'
-import { LoginFormLazy } from 'features/AuthByUserName/ui/LoginForm/LoginForm.lazy.tsx'
+import { LoginFormLazy } from '../LoginForm/LoginForm.lazy.tsx'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 

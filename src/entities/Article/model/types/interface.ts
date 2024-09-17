@@ -1,10 +1,5 @@
 import { User } from 'entities/User'
-
-export enum ArticleBlockType {
-  CODE = 'CODE',
-  IMAGE = 'IMAGE',
-  TEXT = 'TEXT',
-}
+import { ArticleBlockType, ArticleType } from '../consts/constants.ts'
 
 export interface IArticleBlockBase {
   id: string
@@ -32,12 +27,6 @@ export type ArticleBlock =
   | IArticleCodeBlock
   | IArticleImageBlock
   | IArticleTextBlock
-
-export enum ArticleType {
-  IT = 'IT',
-  SCIENCE = 'SCIENCE',
-  ECONOMICS = 'ECONOMICS',
-}
 
 export interface IArticle {
   id: number

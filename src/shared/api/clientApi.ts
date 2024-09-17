@@ -1,4 +1,4 @@
-import { baseQueryWithReAuth } from 'shared/api/baseQuery.ts'
+import { baseQueryWithReAuth } from './baseQuery.ts'
 import { createApi } from '@reduxjs/toolkit/query/react'
 
 export const clientApi = createApi({

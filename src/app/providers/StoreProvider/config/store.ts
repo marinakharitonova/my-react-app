@@ -4,11 +4,13 @@ import { clientApi } from 'shared/api/clientApi.ts'
 import { scrollPositionReducer } from 'widgets/PageWrapper'
 
 import { ENVIRONMENT } from '../../../../constants.ts'
+import { authApi } from 'features/AuthByUserName'
 
 const rootReducer = combineReducers({
   auth: authReducer,
   scrollPosition: scrollPositionReducer,
   [clientApi.reducerPath]: clientApi.reducer,
+  [authApi.reducerPath]: authApi.reducer,
 })
 
 export function setupStore(preloadedState?: Partial<RootState>) {

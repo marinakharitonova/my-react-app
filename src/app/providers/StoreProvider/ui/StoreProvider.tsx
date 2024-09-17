@@ -1,6 +1,6 @@
 import { Provider } from 'react-redux'
 import { ReactNode } from 'react'
-import { RootState, setupStore } from 'app/providers/StoreProvider'
+import { RootState, setupStore } from '../config/store.ts'
 
 export const StoreProvider = ({
   children,

@@ -1,14 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { LOCAL_STORAGE_TOKEN, LOCAL_STORAGE_USER } from '../constants.ts'
-import { authApi } from 'features/AuthByUserName'
 import { User } from '../types/interface.ts'
+import { LoginMutationResponse } from 'features/AuthByUserName/model/types/interface.ts'
 
 type AuthState = {
   user: User | null
   token: string | null
 }
 
-const slice = createSlice({
+export const slice = createSlice({
   name: 'auth',
   initialState: { user: null } as AuthState,
   reducers: {
@@ -23,37 +23,24 @@ const slice = createSlice({
     loggedOut: state => {
       state.user = null
       state.token = null
+
+      localStorage.removeItem(LOCAL_STORAGE_USER)
+      localStorage.removeItem(LOCAL_STORAGE_TOKEN)
     },
     tokenReceived: (state, { payload }: PayloadAction<string>) => {
       state.token = payload
+      localStorage.setItem(LOCAL_STORAGE_TOKEN, 'user token')
+    },
+    loggedIn: (state, { payload }: PayloadAction<LoginMutationResponse>) => {
+      const user = {
+        id: payload.id,
+        username: payload.username,
+      }
+
+      state.user = user
+      state.token = 'user token'
+      localStorage.setItem(LOCAL_STORAGE_USER, JSON.stringify(user))
+      localStorage.setItem(LOCAL_STORAGE_TOKEN, 'user token')
     },
   },
-  extraReducers: builder => {
-    builder
-      .addMatcher(
-        authApi.endpoints.login.matchFulfilled,
-        (state, { payload }) => {
-          const user = {
-            id: payload.id,
-            username: payload.username,
-          }
-
-          state.user = user
-          state.token = 'user token'
-          localStorage.setItem(LOCAL_STORAGE_USER, JSON.stringify(user))
-          localStorage.setItem(LOCAL_STORAGE_TOKEN, 'user token')
-        }
-      )
-
-      .addMatcher(authApi.endpoints.logout.matchFulfilled, state => {
-        state.user = null
-        state.token = null
-        localStorage.removeItem(LOCAL_STORAGE_USER)
-        localStorage.removeItem(LOCAL_STORAGE_TOKEN)
-      })
-  },
 })
-
-export const authReducer = slice.reducer
-
-export const { authUserInitiated, loggedOut, tokenReceived } = slice.actions

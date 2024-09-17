@@ -1,7 +1,7 @@
 import { Navigate } from 'react-router-dom'
-import { useAppSelector } from 'app/providers/StoreProvider'
+import { useAppSelector } from '../../StoreProvider/config/hooks.ts'
 import { selectAuthUser } from 'entities/User'
-import { AppRoutes } from 'app/providers/router'
+import { AppRoutes } from '../types/interface.ts'
 import { ReactNode } from 'react'
 
 export const PrivateRoute = ({ children }: { children?: ReactNode }) => {
