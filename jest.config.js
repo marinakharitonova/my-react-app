@@ -9,12 +9,19 @@ const config = {
   rootDir: '.',
   clearMocks: true,
   testEnvironment: 'jsdom',
-  modulePaths: ['<rootDir>/src/'],
+  testEnvironmentOptions: {
+    customExportConditions: [''],
+  },
+  coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
+  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
+  moduleDirectories: ['node_modules', 'src'],
+  roots: ['<rootDir>/src'],
+  modulePaths: ['<rootDir>/src'],
   setupFilesAfterEnv: ['<rootDir>/setup-tests.js'],
   moduleNameMapper: {
     '\\.svg': '<rootDir>/__mocks__/svg.js',
     '^.+\\.(css|less|scss)$': 'identity-obj-proxy',
-    'src/constants': '<rootDir>/__mocks__/constantsMock.ts',
+    '^entities/(.*)$': '<rootDir>/src/entities/$1',
   },
   reporters: [
     'default',

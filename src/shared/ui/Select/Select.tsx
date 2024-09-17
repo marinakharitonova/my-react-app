@@ -21,6 +21,7 @@ interface SelectProps extends HTMLSelectProps {
   name: string
   error?: string
   register: UseFormRegister<any>
+  dataTestId?: string
 }
 
 export const Select = ({
@@ -30,6 +31,7 @@ export const Select = ({
   name,
   error,
   register,
+  dataTestId,
   ...rest
 }: SelectProps) => {
   const optionsList = useMemo(
@@ -43,7 +45,7 @@ export const Select = ({
   )
 
   return (
-    <FormFieldError error={error}>
+    <FormFieldError error={error} dataTestId={dataTestId}>
       <label className={classNames(cls.SelectWrapper, className)}>
         {label && <span style={{ flexShrink: 0 }}>{label}</span>}
         <select

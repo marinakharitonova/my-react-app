@@ -56,6 +56,7 @@ export const UpdateProfileForm = ({
         name={'firstName'}
         register={register}
         error={errors.firstName?.message}
+        dataTestId={'UpdateProfileForm.FirstName'}
       />
 
       <Input
@@ -63,6 +64,7 @@ export const UpdateProfileForm = ({
         name={'lastName'}
         register={register}
         error={errors.lastName?.message}
+        dataTestId={'UpdateProfileForm.LastName'}
       />
 
       <Input
@@ -71,6 +73,7 @@ export const UpdateProfileForm = ({
         register={register}
         error={errors.age?.message}
         type={'number'}
+        dataTestId={'UpdateProfileForm.Age'}
       />
 
       <Input
@@ -78,6 +81,7 @@ export const UpdateProfileForm = ({
         name={'city'}
         register={register}
         error={errors.city?.message}
+        dataTestId={'UpdateProfileForm.City'}
       />
 
       <Input
@@ -85,6 +89,7 @@ export const UpdateProfileForm = ({
         name={'username'}
         register={register}
         error={errors.username?.message}
+        dataTestId={'UpdateProfileForm.Username'}
       />
 
       <Select
@@ -93,6 +98,7 @@ export const UpdateProfileForm = ({
         register={register}
         options={CURRENCY_SELECT_OPTIONS}
         error={errors.currency?.message}
+        dataTestId={'UpdateProfileForm.Currency'}
       />
 
       <div className={cls.buttons}>
@@ -100,6 +106,7 @@ export const UpdateProfileForm = ({
           theme={ThemeButton.FULFILLED}
           type={'submit'}
           disabled={isLoading}
+          data-testid={'UpdateProfileForm.SubmitButton'}
         >
           {t('save', { ns: 'translation' })}
         </Button>
@@ -109,6 +116,7 @@ export const UpdateProfileForm = ({
           type={'button'}
           disabled={isLoading}
           onClick={onCancel}
+          data-testid={'UpdateProfileForm.CancelButton'}
         >
           {t('cancel', { ns: 'translation' })}
         </Button>

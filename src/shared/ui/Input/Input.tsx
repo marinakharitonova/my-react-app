@@ -16,6 +16,7 @@ export interface InputProps extends HTMLInputProps {
   label?: string
   error?: string
   register: UseFormRegister<any>
+  dataTestId?: string
 }
 
 export const Input = ({
@@ -26,10 +27,11 @@ export const Input = ({
   name,
   error,
   autofocus,
+  dataTestId,
   ...otherProps
 }: InputProps) => {
   return (
-    <FormFieldError error={error}>
+    <FormFieldError error={error} dataTestId={dataTestId}>
       <label className={classNames(cls.InputWrapper, className)}>
         {label && <span style={{ flexShrink: 0 }}>{label}</span>}
         <input
@@ -40,6 +42,7 @@ export const Input = ({
           {...register(name, { valueAsNumber: type === 'number' })}
           {...otherProps}
           autoFocus={autofocus}
+          data-testid={dataTestId}
         />
       </label>
     </FormFieldError>

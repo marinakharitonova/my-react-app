@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+/*import { useEffect } from 'react'
 import { Reducer } from '@reduxjs/toolkit'
 import { useStore } from 'react-redux'
 import { ReduxStoreWithManager } from 'app/providers/StoreProvider/config/store.ts'
@@ -14,4 +14,4 @@ export const useReducer = (reducers: Record<string, Reducer>) => {
       //dispatch({ type: `@INIT ${name} reducer` })
     })
   }, [])
-}
+}*/
