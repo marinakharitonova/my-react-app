@@ -4,7 +4,7 @@ import { clientApi } from 'shared/api/clientApi.ts'
 import { scrollPositionReducer } from 'widgets/PageWrapper'
 
 import { ENVIRONMENT } from '../../../../constants.ts'
-import { authApi } from 'features/AuthByUserName'
+import { authApi } from '../../../../features/AuthByUserName/model/api/index.ts'
 
 const rootReducer = combineReducers({
   auth: authReducer,

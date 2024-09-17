@@ -6,4 +6,5 @@ export {
   tokenReceived,
   loggedOut,
   authUserInitiated,
+  loggedIn,
 } from './model/slice/actions.ts'

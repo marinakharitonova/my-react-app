@@ -12,7 +12,7 @@ import { useLoginMutation } from '../../model/api/index.ts'
 import { catchMutationError } from 'shared/helpers/catchMutationError.ts'
 import { notifyUi } from 'shared/helpers/notifyUi.ts'
 import { useAppDispatch } from 'app/providers/StoreProvider'
-import { loggedIn } from '../../../../entities/User/model/slice/actions.ts'
+import { loggedIn } from 'entities/User'
 
 export interface LoginFormProps {
   className?: string
