@@ -82,6 +82,7 @@
     "msw": "^2.3.5",
     "msw-storybook-addon": "^2.0.3",
     "prettier": "^2.8.8",
+    "react-remove-attr": "^0.0.6",
     "sass": "^1.77.8",
     "storybook": "^8.2.7",
     "typescript": "^5.2.2",

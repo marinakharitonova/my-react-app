@@ -2,9 +2,9 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { authReducer } from 'entities/User'
 import { clientApi } from 'shared/api/clientApi.ts'
 import { scrollPositionReducer } from 'widgets/PageWrapper'
+import { authApi } from 'features/AuthByUserName/model/api'
 
 import { ENVIRONMENT } from '../../../../constants.ts'
-import { authApi } from '../../../../features/AuthByUserName/model/api/index.ts'
 
 const rootReducer = combineReducers({
   auth: authReducer,

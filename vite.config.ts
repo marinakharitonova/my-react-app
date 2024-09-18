@@ -3,10 +3,20 @@ import react from '@vitejs/plugin-react'
 import svgr from 'vite-plugin-svgr'
 import circleDependency from 'vite-plugin-circular-dependency'
 
+import removeAttr from 'react-remove-attr'
+
+const IS_PRODUCTION = process.env.NODE_ENV == 'production'
+
 // https://vitejs.dev/config/
 
 export default defineConfig(({ mode }) => ({
   plugins: [
+    IS_PRODUCTION
+      ? removeAttr({
+          extensions: ['tsx'],
+          attributes: ['data-testid'],
+        })
+      : null,
     react(),
     svgr({
       include: '**/*.svg?react',
