@@ -1,5 +1,5 @@
 import { renderWithProviders } from 'shared/lib/tests/test-utils.tsx'
-import { screen } from '@testing-library/react'
+import { screen, waitFor } from '@testing-library/react'
 import { UpdateProfileForm } from 'entities/Profile'
 import { UpdateProfileFormInputs } from 'entities/Profile/model/types/interface.ts'
 import { setupServer } from 'msw/node'
@@ -20,7 +20,7 @@ const defaultValues: UpdateProfileFormInputs = {
 const server = setupServer(
   // @ts-ignore
   http.put(`${API_URL}/profile`, (req, res, ctx) => {
-    return res(ctx.json(defaultValues), ctx.delay(500))
+    return res(ctx.json(defaultValues), ctx.delay(10))
   })
 )
 beforeAll(() => server.listen())
@@ -97,6 +97,10 @@ describe('UpdateProfileForm component', () => {
     )
     await user.click(screen.getByTestId('UpdateProfileForm.SubmitButton'))
 
-    //expect(screen.getByTestId('UpdateProfileForm.SubmitButton')).toBeDisabled()
+    await waitFor(() => {
+      expect(
+        screen.getByTestId('UpdateProfileForm.SubmitButton')
+      ).toBeDisabled()
+    })
   })
 })

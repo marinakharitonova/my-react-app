@@ -21,7 +21,11 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
   const SpecificIcon = themeIcons[theme ?? Theme.LIGHT]
 
   return (
-    <Button onClick={changeTheme} className={classNames(className)}>
+    <Button
+      onClick={changeTheme}
+      className={classNames(className)}
+      data-testid={'ThemeSwitcher'}
+    >
       <SpecificIcon />
     </Button>
   )

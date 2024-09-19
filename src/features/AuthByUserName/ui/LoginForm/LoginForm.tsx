@@ -60,6 +60,7 @@ const LoginForm = ({ className, onSuccess }: LoginFormProps) => {
         placeholder={t('input_login')}
         error={errors.login?.message}
         autofocus
+        dataTestId={'LoginForm.Login'}
       />
 
       <Input
@@ -69,6 +70,7 @@ const LoginForm = ({ className, onSuccess }: LoginFormProps) => {
         placeholder={t('input_pass')}
         type={'password'}
         error={errors.password?.message}
+        dataTestId={'LoginForm.Password'}
       />
 
       <Button
@@ -76,6 +78,7 @@ const LoginForm = ({ className, onSuccess }: LoginFormProps) => {
         theme={ThemeButton.FULFILLED}
         type={'submit'}
         disabled={isLoading}
+        data-testid={'LoginForm.SubmitButton'}
       >
         {t('login')}
       </Button>

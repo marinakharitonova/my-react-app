@@ -17,7 +17,9 @@ export function setupStore(preloadedState?: Partial<RootState>) {
   return configureStore({
     reducer: rootReducer,
     middleware: getDefaultMiddleware =>
-      getDefaultMiddleware().concat(clientApi.middleware),
+      getDefaultMiddleware()
+        .concat(clientApi.middleware)
+        .concat(authApi.middleware),
     preloadedState,
     devTools: ENVIRONMENT === 'development',
   })
