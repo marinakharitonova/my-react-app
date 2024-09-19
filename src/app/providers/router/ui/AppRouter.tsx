@@ -4,13 +4,13 @@ import { Suspense } from 'react'
 import { NotFound } from 'pages/NotFound'
 
 import { About } from 'pages/About'
-import { Loader } from 'shared/ui/Loader/Loader.tsx'
 import { Main } from 'pages/Main'
-import { AppRoutes } from '../types/interface.ts'
+import { AppRoutes } from 'shared/consts/interface.ts'
 import { PrivateRoute } from '../ui/PrivateRoute.tsx'
 import { Profile } from 'pages/Profile'
 import { Articles } from 'pages/Articles'
 import { ArticleDetail } from 'pages/ArticleDetail'
+import { Loader } from 'shared/ui/Loader'
 
 export const AppRouter = () => {
   return (

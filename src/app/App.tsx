@@ -4,11 +4,12 @@ import { Suspense, useEffect } from 'react'
 import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
 import { AppRouter } from 'app/providers/router'
-import { Loader } from 'shared/ui/Loader/Loader.tsx'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.min.css'
-import { useAppDispatch } from 'app/providers/StoreProvider'
+
 import { authUserInitiated } from 'entities/User'
+import { Loader } from 'shared/ui/Loader'
+import { useAppDispatch } from 'shared/hooks/useStore.ts'
 
 export const App = () => {
   const dispatch = useAppDispatch()

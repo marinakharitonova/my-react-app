@@ -5,10 +5,9 @@ import {
 } from 'entities/Profile'
 import { useToggle } from 'shared/hooks/useToggle.ts'
 import { useTranslation } from 'react-i18next'
-import { ThemeButton } from 'shared/ui/Button/interface.ts'
-import { Button } from 'shared/ui/Button/Button.tsx'
-import { ContentLoader } from 'shared/ui/ContentLoader/ContentLoader.tsx'
-import { PageWrapper } from 'widgets/PageWrapper/ui/PageWrapper.tsx'
+import { Button, ThemeButton } from 'shared/ui/Button'
+import { ContentLoader } from 'shared/ui/ContentLoader'
+import { PageWrapper } from 'widgets/PageWrapper'
 
 const Profile = () => {
   const { t } = useTranslation()

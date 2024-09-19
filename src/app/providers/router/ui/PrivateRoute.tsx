@@ -1,8 +1,8 @@
 import { Navigate } from 'react-router-dom'
-import { useAppSelector } from '../../StoreProvider/config/hooks.ts'
 import { selectAuthUser } from 'entities/User'
-import { AppRoutes } from '../types/interface.ts'
+import { AppRoutes } from 'shared/consts/interface.ts'
 import { ReactNode } from 'react'
+import { useAppSelector } from 'shared/hooks/useStore.ts'
 
 export const PrivateRoute = ({ children }: { children?: ReactNode }) => {
   const authUser = useAppSelector(selectAuthUser)

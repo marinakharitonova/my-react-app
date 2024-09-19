@@ -4,7 +4,7 @@ import ArticleDetail from './ArticleDetail.tsx'
 import { withStore } from '../../../../.storybook/preview.tsx'
 import { delay, http, HttpResponse } from 'msw'
 import { mswLoader } from 'msw-storybook-addon'
-import { AppRoutes } from 'app/providers/router'
+import { AppRoutes } from 'shared/consts/interface.ts'
 
 const API_URL = import.meta.env.VITE_CLIENT_API
 

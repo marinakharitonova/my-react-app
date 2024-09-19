@@ -2,7 +2,7 @@ import classNames from 'classnames'
 import styles from './AppLink.module.scss'
 import { Link, LinkProps } from 'react-router-dom'
 import { ReactNode } from 'react'
-import { ThemeAppLink } from 'shared/ui/AppLink/interface.ts'
+import { ThemeAppLink } from './interface.ts'
 
 interface AppLinkProps extends LinkProps {
   className?: string

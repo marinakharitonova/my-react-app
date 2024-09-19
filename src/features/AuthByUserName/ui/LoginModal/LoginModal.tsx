@@ -1,9 +1,9 @@
-import { Modal } from 'shared/ui/Modal/Modal'
 import { Suspense } from 'react'
-import { Loader } from 'shared/ui/Loader/Loader.tsx'
 import { LoginFormLazy } from '../LoginForm/LoginForm.lazy.tsx'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { Loader } from 'shared/ui/Loader'
+import { Modal } from 'shared/ui/Modal'
 
 interface LoginModalProps {
   className?: string

@@ -1,9 +1,7 @@
 import { useTranslation } from 'react-i18next'
-import { Button } from 'shared/ui/Button/Button'
 import { Input } from 'shared/ui/Input/Input'
 import cls from './LoginForm.module.scss'
 import classNames from 'classnames'
-import { ThemeButton } from 'shared/ui/Button/interface.ts'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { LoginFormInputs } from '../../model/types/interface.ts'
 import { validationSchema } from '../../model/validation/validationSchema.ts'
@@ -11,8 +9,9 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { useLoginMutation } from '../../model/api/index.ts'
 import { catchMutationError } from 'shared/helpers/catchMutationError.ts'
 import { notifyUi } from 'shared/helpers/notifyUi.ts'
-import { useAppDispatch } from 'app/providers/StoreProvider'
 import { loggedIn } from 'entities/User'
+import { Button, ThemeButton } from 'shared/ui/Button'
+import { useAppDispatch } from 'shared/hooks/useStore.ts'
 
 export interface LoginFormProps {
   className?: string

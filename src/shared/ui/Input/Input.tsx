@@ -2,7 +2,7 @@ import { InputHTMLAttributes } from 'react'
 import cls from './Input.module.scss'
 import classNames from 'classnames'
 import { UseFormRegister } from 'react-hook-form'
-import { FormFieldError } from 'shared/ui/FormFieldError/FormFieldError.tsx'
+import { FormFieldError } from 'shared/ui/FormFieldError'
 
 type HTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,

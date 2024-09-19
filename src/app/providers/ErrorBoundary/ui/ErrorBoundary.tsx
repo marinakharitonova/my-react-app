@@ -1,6 +1,6 @@
 import React, { ErrorInfo, ReactNode, Suspense } from 'react'
 import { AppCrash } from 'widgets/AppCrash'
-import { Loader } from 'shared/ui/Loader/Loader.tsx'
+import { Loader } from 'shared/ui/Loader'
 
 interface ErrorBoundaryProps {
   children: ReactNode

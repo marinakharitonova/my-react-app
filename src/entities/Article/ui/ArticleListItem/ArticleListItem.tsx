@@ -1,13 +1,14 @@
 import { useTranslation } from 'react-i18next'
 import EyeIcon from 'shared/assets/icons/eye.svg?react'
-import { Card } from 'shared/ui/Card/Card.tsx'
 import cls from './ArticleListItem.module.scss'
-import { ArticleBlockType, IArticle } from 'entities/Article'
+import { IArticle } from '../../model/types/interface.ts'
 import classNames from 'classnames'
-import { IArticleTextBlock } from 'entities/Article/model/types/interface.ts'
-import { AppLink } from 'shared/ui/AppLink/AppLink.tsx'
-import { ArticleTextBlock } from 'entities/Article/ui/ArticleTextBlock/ArticleTextBlock.tsx'
+import { IArticleTextBlock } from '../../model/types/interface.ts'
+import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock.tsx'
 import { memo } from 'react'
+import { AppLink } from 'shared/ui/AppLink'
+import { Card } from 'shared/ui/Card'
+import { ArticleBlockType } from '../../model/consts/constants.ts'
 
 interface ArticleListItemProps {
   className?: string

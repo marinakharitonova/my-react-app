@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import styles from './Button.module.scss'
 import { ButtonHTMLAttributes, ReactNode } from 'react'
-import { ThemeButton } from 'shared/ui/Button/interface.ts'
+import { ThemeButton } from './interface.ts'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string

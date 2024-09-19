@@ -1,8 +1,8 @@
 import classNames from 'classnames'
 import cls from './ContentLoader.module.scss'
-import { Loader } from 'shared/ui/Loader/Loader.tsx'
 import { useTranslation } from 'react-i18next'
 import { ReactNode } from 'react'
+import { Loader } from 'shared/ui/Loader'
 
 export const ContentLoader = ({
   isLoading,

@@ -3,13 +3,11 @@ import styles from './Sidebar.module.scss'
 import { useMemo, useState } from 'react'
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher'
-import { Button } from 'shared/ui/Button/Button.tsx'
-import { ThemeButton } from 'shared/ui/Button/interface.ts'
-
-import { SidebarLink } from 'widgets/Sidebar/ui/SidebarLink/SidebarLink.tsx'
-import { sidebarItemsList } from 'widgets/Sidebar/modal/constants.ts'
-import { useAppSelector } from 'app/providers/StoreProvider'
+import { SidebarLink } from './SidebarLink/SidebarLink.tsx'
+import { sidebarItemsList } from '../modal/constants.ts'
 import { selectAuthUser } from 'entities/User'
+import { Button, ThemeButton } from 'shared/ui/Button'
+import { useAppSelector } from 'shared/hooks/useStore.ts'
 
 interface SidebarProps {
   className?: string
@@ -45,9 +43,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
       >
         {isCollapsed ? '>' : '<'}
       </Button>
-
       <div className={styles.sidebarLinks}>{itemsList}</div>
-
       <div className={styles.buttons}>
         <ThemeSwitcher />
         <LanguageSwitcher />

@@ -1,10 +1,9 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useGetArticlesListQuery } from 'entities/Article/api'
-import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList.tsx'
-import { ContentLoader } from 'shared/ui/ContentLoader/ContentLoader.tsx'
-import { ARTICLE_LIST_LIMIT } from 'entities/Article/model/consts/constants.ts'
-import { Loader } from 'shared/ui/Loader/Loader.tsx'
 import { PageWrapper } from 'widgets/PageWrapper'
+import { ContentLoader } from 'shared/ui/ContentLoader'
+import { ARTICLE_LIST_LIMIT, ArticleList } from 'entities/Article'
+import { Loader } from 'shared/ui/Loader'
 
 const Articles = () => {
   const [page, setPage] = useState(1)

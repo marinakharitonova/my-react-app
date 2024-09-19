@@ -1,8 +1,8 @@
-import { Code } from 'shared/ui/Code/Code'
 import cls from './ArticleCodeBlock.module.scss'
 
 import classNames from 'classnames'
-import { IArticleCodeBlock } from 'entities/Article/model/types/interface.ts'
+import { IArticleCodeBlock } from '../../model/types/interface.ts'
+import { Code } from 'shared/ui/Code'
 
 export interface ArticleCodeBlockComponentProps {
   className?: string

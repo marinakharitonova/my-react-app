@@ -1,7 +1,7 @@
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 import cls from './ArticleList.module.scss'
 import classNames from 'classnames'
-import { IArticle } from 'entities/Article'
+import { IArticle } from '../../model/types/interface.ts'
 import { memo } from 'react'
 
 interface ArticleListProps {

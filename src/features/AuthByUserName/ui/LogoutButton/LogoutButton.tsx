@@ -1,11 +1,11 @@
-import { ThemeButton } from 'shared/ui/Button/interface.ts'
 import styles from 'widgets/Navbar/ui/Navbar.module.scss'
-import { Button } from 'shared/ui/Button/Button.tsx'
+
 import { useTranslation } from 'react-i18next'
-import { useLogoutMutation } from 'features/AuthByUserName/model/api'
+import { useLogoutMutation } from '../../model/api/index.ts'
 import { catchMutationError } from 'shared/helpers/catchMutationError.ts'
-import { useAppDispatch } from 'app/providers/StoreProvider'
 import { loggedOut } from 'entities/User'
+import { Button, ThemeButton } from 'shared/ui/Button'
+import { useAppDispatch } from 'shared/hooks/useStore.ts'
 
 export const LogoutButton = () => {
   const { t } = useTranslation()

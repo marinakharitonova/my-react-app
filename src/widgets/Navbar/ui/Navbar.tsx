@@ -1,13 +1,11 @@
 import styles from './Navbar.module.scss'
 import classNames from 'classnames'
-import { Button } from 'shared/ui/Button/Button.tsx'
 import { useToggle } from 'shared/hooks/useToggle.ts'
-import { ThemeButton } from 'shared/ui/Button/interface.ts'
 import { useTranslation } from 'react-i18next'
-import { LoginModal } from 'features/AuthByUserName/ui/LoginModal/LoginModal.tsx'
-import { useAppSelector } from 'app/providers/StoreProvider'
 import { selectAuthUser } from 'entities/User'
-import { LogoutButton } from 'features/AuthByUserName/ui/LogoutButton/LogoutButton.tsx'
+import { Button, ThemeButton } from 'shared/ui/Button'
+import { useAppSelector } from 'shared/hooks/useStore.ts'
+import { LoginModal, LogoutButton } from 'features/AuthByUserName'
 
 interface NavbarProps {
   clasName?: string

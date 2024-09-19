@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next'
-import { PageWrapper } from 'widgets/PageWrapper/ui/PageWrapper.tsx'
-import { Drawer } from 'shared/ui/Drawer/Drawer.tsx'
 import { MobileView } from 'react-device-detect'
-import { AnimationProvider } from 'shared/ui/AnimationProvider/AnimationProvider.tsx'
+import { AnimationProvider } from 'shared/ui/AnimationProvider'
+import { Drawer } from 'shared/ui/Drawer'
+import { PageWrapper } from 'widgets/PageWrapper'
 
 export const Main = () => {
   const { t } = useTranslation()

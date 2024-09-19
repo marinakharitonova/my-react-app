@@ -1,7 +1,7 @@
-import { AppLink } from 'shared/ui/AppLink/AppLink.tsx'
 import { useTranslation } from 'react-i18next'
 import styles from '../Sidebar.module.scss'
 import { SidebarItemType } from 'widgets/Sidebar/modal/constants.ts'
+import { AppLink } from 'shared/ui/AppLink'
 
 interface SidebarLinkProps {
   item: SidebarItemType

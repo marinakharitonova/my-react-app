@@ -1,15 +1,15 @@
 import EyeIcon from 'shared/assets/icons/eye.svg?react'
 import CalendarIcon from 'shared/assets/icons/calendar.svg?react'
-import { ArticleCodeBlock } from 'entities/Article/ui/ArticleCodeBlock/ArticleCodeBlock.tsx'
-import { ArticleImageBlock } from 'entities/Article/ui/ArticleImageBlock/ArticleImageBlock.tsx'
-import { ArticleTextBlock } from 'entities/Article/ui/ArticleTextBlock/ArticleTextBlock.tsx'
+import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock.tsx'
+import { ArticleImageBlock } from '../ArticleImageBlock/ArticleImageBlock.tsx'
+import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock.tsx'
 import cls from './ArticleDetails.module.scss'
 import { ArticleBlockType } from '../../model/consts/constants.ts'
-import { ContentLoader } from 'shared/ui/ContentLoader/ContentLoader.tsx'
-import { useGetArticleByIdQuery } from 'entities/Article/api'
+import { useGetArticleByIdQuery } from '../../api'
 import classNames from 'classnames'
-import { Avatar } from 'shared/ui/Avatar/Avatar.tsx'
 import { PageWrapper } from 'widgets/PageWrapper'
+import { Avatar } from 'shared/ui/Avatar'
+import { ContentLoader } from 'shared/ui/ContentLoader'
 
 interface ArticleDetailsProps {
   className?: string
