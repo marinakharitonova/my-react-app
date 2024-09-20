@@ -53,6 +53,8 @@
     "./setup-tests.js",
     "./jest.config.js",
     ".storybook/preview.tsx",
-    "src/constants.ts"
+    "src/constants.ts",
+    "cypress",
+    "cypress.config.js"
   ]
 }

@@ -10,7 +10,8 @@ module.exports = {
     "plugin:prettier/recommended",
     "plugin:i18next/recommended",
     "plugin:jest-dom/recommended",
-    "plugin:storybook/recommended"
+    "plugin:storybook/recommended",
+    "plugin:cypress/recommended"
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs', 'json-server/index.cjs', '__mocks__'],
   parser: '@typescript-eslint/parser',

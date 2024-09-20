@@ -27,7 +27,11 @@ const Articles = () => {
   return (
     <ContentLoader isLoading={isLoading} isError={isError}>
       {data?.items && (
-        <PageWrapper isHidden={isFetching} callback={loadMore}>
+        <PageWrapper
+          isHidden={isFetching}
+          callback={loadMore}
+          dataTestid={'Articles'}
+        >
           <ArticleList articles={data.items} />
           {isFetching && <Loader />}
         </PageWrapper>
