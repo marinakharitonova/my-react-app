@@ -9,10 +9,12 @@ export const PageWrapper = ({
   children,
   isHidden,
   callback,
+  dataTestid,
 }: {
   children: ReactNode
   isHidden?: boolean
   callback?: () => void
+  dataTestid?: string
 }) => {
   const dispatch = useAppDispatch()
 
@@ -54,6 +56,7 @@ export const PageWrapper = ({
         overflowY: 'auto',
       }}
       onScroll={handleScroll}
+      data-testid={dataTestid}
     >
       {children}
       <div

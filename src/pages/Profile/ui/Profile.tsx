@@ -17,7 +17,7 @@ const Profile = () => {
   const { isOn: isEdited, on: edit, off: cancelEdit } = useToggle(false)
 
   return (
-    <PageWrapper>
+    <PageWrapper dataTestid={'ProfilePage'}>
       <h2 style={{ marginBottom: '40px' }}>{t('profile')}</h2>
 
       {isEdited ? (

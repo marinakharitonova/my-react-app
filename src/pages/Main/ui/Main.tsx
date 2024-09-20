@@ -8,7 +8,7 @@ export const Main = () => {
   const { t } = useTranslation()
 
   return (
-    <PageWrapper>
+    <PageWrapper dataTestid={'MainPage'}>
       {t('main')}
 
       <MobileView>

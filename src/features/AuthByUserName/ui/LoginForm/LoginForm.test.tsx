@@ -49,11 +49,8 @@ describe('LoginForm component', () => {
 
     await user.click(screen.getByTestId('LoginForm.SubmitButton'))
 
-    await waitFor(
-      () => {
-        expect(mockCallback).toHaveBeenCalledTimes(1)
-      },
-      { timeout: 80 }
-    )
+    await waitFor(() => {
+      expect(mockCallback).toHaveBeenCalledTimes(1)
+    })
   })
 })
