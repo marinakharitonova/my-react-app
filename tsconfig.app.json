@@ -60,7 +60,6 @@
     "src/constants.ts"
   ],
   "exclude": [
-    "cypress/cypress.config.ts",
     "cypress",
     "node_modules"
   ]

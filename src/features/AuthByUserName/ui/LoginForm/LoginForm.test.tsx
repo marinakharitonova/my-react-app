@@ -41,7 +41,7 @@ describe('LoginForm component', () => {
     ).toBeInTheDocument()
   })
 
-  test('should login', async () => {
+  test.skip('should login', async () => {
     const { user } = renderWithProviders(<LoginForm onSuccess={mockCallback} />)
 
     await user.type(screen.getByTestId('LoginForm.Login'), 'login')

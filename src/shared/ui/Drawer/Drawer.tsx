@@ -96,8 +96,9 @@ export const DrawerContent = () => {
             onClick={() =>
               i < items.length - 1 ? alert('clicked on ' + entry) : close()
             }
-            children={entry}
-          />
+          >
+            {entry}
+          </div>
         ))}
       </Spring.a.div>
     </div>

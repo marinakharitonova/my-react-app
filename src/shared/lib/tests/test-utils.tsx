@@ -46,7 +46,7 @@ export function renderWithProviders(
     ...renderOptions
   }: ExtendedRenderOptions & TestProviderOptions = {}
 ) {
-  function Wrapper({ children }: PropsWithChildren<{}>): JSX.Element {
+  function Wrapper({ children }: PropsWithChildren<unknown>): JSX.Element {
     return (
       <TestProvider options={{ preloadedState, route, theme }}>
         {children}
