@@ -101,6 +101,15 @@ export const Success: Story = {
     },
     initialEntries: '/articles/1',
     path: `${AppRoutes.ARTICLES_DETAIL}:articleId`,
+    preloadedState: {
+      auth: {
+        user: {
+          id: 1,
+          username: 'User1',
+        },
+        token: 'token',
+      },
+    },
   },
   decorators: [withStore],
   loaders: [mswLoader],

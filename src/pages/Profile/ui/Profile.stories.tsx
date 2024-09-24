@@ -33,6 +33,15 @@ export const Success: Story = {
         }),
       ],
     },
+    preloadedState: {
+      auth: {
+        user: {
+          id: 1,
+          username: 'User1',
+        },
+        token: 'token',
+      },
+    },
   },
   decorators: [withStore],
   loaders: [mswLoader],
