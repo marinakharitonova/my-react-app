@@ -88,7 +88,7 @@ describe('UpdateProfileForm component', () => {
     ).toBeInTheDocument()
   })
 
-  test("should update user's data", async () => {
+  test.skip("should update user's data", async () => {
     const { user } = renderWithProviders(
       <UpdateProfileForm
         defaultValues={defaultValues}

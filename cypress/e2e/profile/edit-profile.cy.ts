@@ -27,6 +27,7 @@ describe('Profile page', () => {
     cy.get(selectByTestId('ProfileCard.Currency')).should('to.contain', 'RUB')
   })
   it('edit user', () => {
+    //cy.intercept('GET', '**/profile', { fixture: 'profile.json' })
     const newName = 'newName'
     const newLastname = 'newLastname'
     cy.updateProfile(newName, newLastname)
