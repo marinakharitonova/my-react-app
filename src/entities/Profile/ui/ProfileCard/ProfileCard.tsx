@@ -14,19 +14,46 @@ export const ProfileCard = ({ className, data }: ProfileCardProps) => {
   const { t } = useTranslation('profile')
 
   return (
-    <div className={classNames(cls.ProfileCard, className)}>
+    <div
+      className={classNames(cls.ProfileCard, className)}
+      data-testid={'ProfileCard'}
+    >
       <div className={cls.data}>
         {/*{data?.avatar && (*/}
         {/*    <div className={cls.avatarWrapper}>*/}
         {/*        <Avatar src={data?.avatar} />*/}
         {/*    </div>*/}
         {/*)}*/}
-        <ProfileCardItem name={t('first_name')} value={data.firstName} />
-        <ProfileCardItem name={t('last_name')} value={data.lastName} />
-        <ProfileCardItem name={t('age')} value={data.age} />
-        <ProfileCardItem name={t('city')} value={data.city} />
-        <ProfileCardItem name={t('user_name')} value={data.username} />
-        <ProfileCardItem name={t('currency')} value={data.currency} />
+        <ProfileCardItem
+          name={t('first_name')}
+          value={data.firstName}
+          dataTestId={'ProfileCard.FirstName'}
+        />
+        <ProfileCardItem
+          name={t('last_name')}
+          value={data.lastName}
+          dataTestId={'ProfileCard.LastName'}
+        />
+        <ProfileCardItem
+          name={t('age')}
+          value={data.age}
+          dataTestId={'ProfileCard.Age'}
+        />
+        <ProfileCardItem
+          name={t('city')}
+          value={data.city}
+          dataTestId={'ProfileCard.City'}
+        />
+        <ProfileCardItem
+          name={t('user_name')}
+          value={data.username}
+          dataTestId={'ProfileCard.Username'}
+        />
+        <ProfileCardItem
+          name={t('currency')}
+          value={data.currency}
+          dataTestId={'ProfileCard.Currency'}
+        />
       </div>
     </div>
   )

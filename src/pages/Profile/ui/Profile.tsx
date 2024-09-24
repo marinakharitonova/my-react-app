@@ -43,6 +43,7 @@ const Profile = () => {
             onClick={edit}
             style={{ display: 'block', margin: '0 0 20px auto' }}
             disabled={isFetching || isError}
+            data-testid={'ProfilePage.EditButton'}
           >
             {t('edit')}
           </Button>

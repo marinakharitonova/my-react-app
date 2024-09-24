@@ -1,9 +1,12 @@
 import {
   LOCAL_STORAGE_TOKEN,
   LOCAL_STORAGE_USER,
-} from '../../../src/entities/User/model/constants.ts'
+} from '../../../src/entities/User/model/constants'
 
-export const login = (username: string, password: string) => {
+export const login = (
+  username = Cypress.env('auth0_username'),
+  password = Cypress.env('auth0_password')
+) => {
   cy.request({
     method: 'POST',
     url: 'http://localhost:8000/login',
@@ -14,7 +17,14 @@ export const login = (username: string, password: string) => {
   }).then(({ body }) => {
     window.localStorage.setItem(LOCAL_STORAGE_USER, JSON.stringify(body))
     window.localStorage.setItem(LOCAL_STORAGE_TOKEN, 'token')
-
-    cy.visit('/')
   })
+}
+
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace Cypress {
+    interface Chainable {
+      login(email?: string, password?: string): Chainable<void>
+    }
+  }
 }

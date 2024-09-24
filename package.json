@@ -12,7 +12,7 @@
     "lint:fix": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
     "test:unit": "jest",
     "test:ui": "npx chromatic --project-token=chpt_18250846ba87b4e",
-    "test:e2e": "cypress open",
+    "test:e2e": "cypress open --config-file cypress/cypress.config.js",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "start:dev:server": "node ./json-server/index.cjs"

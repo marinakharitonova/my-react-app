@@ -45,7 +45,11 @@
         "src/widgets/*"
       ]
     },
-    "types": ["jest", "node", "@testing-library/jest-dom"]
+    "types": [
+      "jest",
+      "node",
+      "@testing-library/jest-dom"
+    ]
   },
   "include": [
     "src",
@@ -53,8 +57,11 @@
     "./setup-tests.js",
     "./jest.config.js",
     ".storybook/preview.tsx",
-    "src/constants.ts",
+    "src/constants.ts"
+  ],
+  "exclude": [
+    "cypress/cypress.config.ts",
     "cypress",
-    "cypress.config.js"
+    "node_modules"
   ]
 }
