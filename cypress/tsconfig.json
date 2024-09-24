@@ -9,10 +9,12 @@
       "cypress",
       "node"
     ],
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "allowJs": true
   },
   "include": [
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "cypress.config.js"
   ]
 }
