@@ -7,9 +7,16 @@ interface AvatarProps {
   src?: string
   size?: number
   alt?: string
+  dataTestId?: string
 }
 
-export const Avatar = ({ className, src, size, alt }: AvatarProps) => {
+export const Avatar = ({
+  className,
+  src,
+  size,
+  alt,
+  dataTestId,
+}: AvatarProps) => {
   const styles = useMemo<CSSProperties>(
     () => ({
       width: size || 100,
@@ -24,6 +31,7 @@ export const Avatar = ({ className, src, size, alt }: AvatarProps) => {
       alt={alt}
       style={styles}
       className={classNames(cls.Avatar, className)}
+      data-testid={dataTestId}
     />
   )
 }

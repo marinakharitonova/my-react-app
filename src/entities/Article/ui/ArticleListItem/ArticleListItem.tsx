@@ -1,9 +1,8 @@
 import { useTranslation } from 'react-i18next'
 import EyeIcon from 'shared/assets/icons/eye.svg?react'
 import cls from './ArticleListItem.module.scss'
-import { IArticle } from '../../model/types/interface.ts'
+import { IArticle, IArticleTextBlock } from '../../model/types/interface.ts'
 import classNames from 'classnames'
-import { IArticleTextBlock } from '../../model/types/interface.ts'
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock.tsx'
 import { memo } from 'react'
 import { AppLink } from 'shared/ui/AppLink'
@@ -24,7 +23,10 @@ export const ArticleListItem = memo(
     ) as IArticleTextBlock
 
     return (
-      <div className={classNames(cls.ArticleListItem, className)}>
+      <div
+        className={classNames(cls.ArticleListItem, className)}
+        data-testid={'ArticleListItem'}
+      >
         <Card className={cls.card}>
           <div className={cls.header}>
             <p className={cls.username}>{article.user.username}</p>

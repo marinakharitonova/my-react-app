@@ -31,19 +31,29 @@ export const ArticleDetails = ({ className, id }: ArticleDetailsProps) => {
     <ContentLoader isError={isError} isLoading={isFetching}>
       {data && (
         <PageWrapper>
-          <div className={classNames(cls.ArticleDetails, className)}>
+          <div
+            className={classNames(cls.ArticleDetails, className)}
+            data-testid={'ArticleDetails'}
+          >
             <div className={cls.avatarWrapper}>
-              <Avatar size={200} src={data.img} className={cls.avatar} />
+              <Avatar
+                size={200}
+                src={data.img}
+                className={cls.avatar}
+                dataTestId={'ArticleDetails.Avatar'}
+              />
             </div>
-            <h2 className={cls.title}>{data.title}</h2>
-            <h3>{data.subtitle}</h3>
+            <h2 className={cls.title} data-testid={'ArticleDetails.Title'}>
+              {data.title}
+            </h2>
+            <h3 data-testid={'ArticleDetails.Subtitle'}>{data.subtitle}</h3>
             <div className={cls.articleInfo}>
               <EyeIcon className={cls.icon} />
-              <p>{data.views}</p>
+              <p data-testid={'ArticleDetails.Views'}>{data.views}</p>
             </div>
             <div className={cls.articleInfo}>
               <CalendarIcon className={cls.icon} />
-              <p>{data.createdAt}</p>
+              <p data-testid={'ArticleDetails.CreatedAt'}>{data.createdAt}</p>
             </div>
             {data.blocks.map(item => {
               const SpecificComponent = components?.[item.type]

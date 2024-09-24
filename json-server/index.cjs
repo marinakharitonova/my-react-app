@@ -136,7 +136,7 @@ server.get('/articles', (req, res) => {
   try {
     const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'))
     const { articles } = db
-    const {query: {limit, page}} = req;
+    const { query: { limit, page } } = req
 
     if (articles) {
       const resp = createPaginationResponse(articles, Number(page), Number(limit))
@@ -144,6 +144,81 @@ server.get('/articles', (req, res) => {
     }
 
     return res.status(403).json({ message: 'Article not found' })
+  } catch (e) {
+    console.log(e)
+    return res.status(500).json({ message: e.message })
+  }
+})
+
+server.post('/articles', (req, res) => {
+  if (!req.headers.authorization) {
+    return res.status(403).json({ message: 'User not found' })
+  }
+
+  try {
+    const newData = req.body
+    const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'))
+
+    if (newData) {
+      const newDb = {
+        ...db,
+        articles: {
+          ...db.articles,
+          ...newData,
+        },
+      }
+
+      try {
+        fs.writeFileSync(path.resolve(__dirname, 'db.json'), JSON.stringify(newDb))
+        return res.status(200)
+      } catch (err) {
+        console.log(err)
+        return res.status(500).json({ message: err.message })
+      }
+    }
+
+    return res.status(403).json({ message: 'User not found' })
+  } catch (e) {
+    console.log(e)
+    return res.status(500).json({ message: e.message })
+  }
+})
+
+server.delete('/articles/:id', (req, res) => {
+  if (!req.headers.authorization) {
+    return res.status(403).json({ message: 'User not found' })
+  }
+
+  try {
+    const newData = req.body
+    const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'))
+
+
+    const { articles } = db
+
+    const { id } = req.params
+
+    const newArticles = articles ? articles.filter(item => item.id !== Number(id)) : null
+
+    if (newArticles) {
+      const newDb = {
+        ...db,
+        articles: {
+          ...db.articles,
+          ...newData,
+        },
+      }
+
+      try {
+        fs.writeFileSync(path.resolve(__dirname, 'db.json'), JSON.stringify(newDb))
+        return res.status(200)
+      } catch (err) {
+        console.log(err)
+        return res.status(500).json({ message: err.message })
+      }
+    }
+
+    return res.status(403).json({ message: 'User not found' })
   } catch (e) {
     console.log(e)
     return res.status(500).json({ message: e.message })
